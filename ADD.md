@@ -8,12 +8,12 @@
 
 ##Technical
 
-###External Services
+####External Services
 
-###Screens
+####Screens
 
-###Views / View Controllers/ Classes
+####Views / View Controllers/ Classes
 
-###Data Models
+####Data Models
 
 ##MVP Milestones
