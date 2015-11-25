@@ -13,6 +13,7 @@ Putting your phone in front of you by using smartphone car mount (Future: attach
 When feeling sleepy, this app recognises your eye motion and sounds an alert in order to make you wake up. 
 (Future: Recording your face and driving behaviour every time when driving and analysing your health and how to improve your driving skills)
 (Future: Recording a sound when you drive, and if accidental situation occurs, this app makes emergency call to police or ride-sharing companies)
+(Future: Responding your eye motion and gesture/posture, this app lets you control accessories inside a car)
 
 ##Technical
 
@@ -27,9 +28,18 @@ When feeling sleepy, this app recognises your eye motion and sounds an alert in 
 - (may need a screen for the initial calibration of user's face)
 
 ####Views / View Controllers/ Classes
+- camera
+- opencv
+- sound
+- configuration or setting
+- image
+- behaviour model
 
 ####Data Models
 - Realm(?) to store the data about how much time a user (a driver) closes each eye.
+-- current set of data in every half second
+-- data for comparison (if current set of datta is different, then make alert)
+-- other log (for future life log or UI for car accessories)
 
 ##MVP Milestones
 Week 1 (Nov 9-), Week 2 (Nov 16-): 
@@ -38,7 +48,7 @@ Week 1 (Nov 9-), Week 2 (Nov 16-):
 Week 3 (Nov 23-): 
 - Work on sample code for eye detection
 - Make EyeDetection view and controller
-- Make basic storyboard
+- Make basic storyboard based on Makestagram code
 
 Week 4 (Nov 30-): 
 - Add sound feature
