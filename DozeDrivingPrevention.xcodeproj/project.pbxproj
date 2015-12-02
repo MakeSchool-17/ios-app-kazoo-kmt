@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		159AE0455FD0A8E20FB9DAF1 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5056A74B6B4EB131EB3D7E03 /* libPods.a */; };
 		C9D3204F1C0E1CDA00641F84 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D3204E1C0E1CDA00641F84 /* AppDelegate.swift */; };
-		C9D320511C0E1CDA00641F84 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D320501C0E1CDA00641F84 /* ViewController.swift */; };
 		C9D320541C0E1CDA00641F84 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9D320521C0E1CDA00641F84 /* Main.storyboard */; };
 		C9D320561C0E1CDA00641F84 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9D320551C0E1CDA00641F84 /* Assets.xcassets */; };
 		C9D320591C0E1CDA00641F84 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9D320571C0E1CDA00641F84 /* LaunchScreen.storyboard */; };
@@ -25,6 +24,9 @@
 		C9D3208E1C0E23C000641F84 /* haarcascade_righteye_2splits.xml in Resources */ = {isa = PBXBuildFile; fileRef = C9D320881C0E23C000641F84 /* haarcascade_righteye_2splits.xml */; };
 		C9D3208F1C0E23C000641F84 /* haarcascade_lefteye_2splits.xml in Resources */ = {isa = PBXBuildFile; fileRef = C9D320891C0E23C000641F84 /* haarcascade_lefteye_2splits.xml */; };
 		C9D320901C0E23C000641F84 /* lbpcascade_frontalface.xml in Resources */ = {isa = PBXBuildFile; fileRef = C9D3208A1C0E23C000641F84 /* lbpcascade_frontalface.xml */; };
+		C9D320D81C0E531600641F84 /* DetectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D320D61C0E531600641F84 /* DetectionViewController.swift */; };
+		C9D320D91C0E531600641F84 /* InstructionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D320D71C0E531600641F84 /* InstructionViewController.swift */; };
+		C9D320DB1C0E533200641F84 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D320DA1C0E533200641F84 /* SettingViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,7 +52,6 @@
 		ADF8751B9599F9F0277D36F5 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		C9D3204B1C0E1CDA00641F84 /* DozeDrivingPrevention.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DozeDrivingPrevention.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9D3204E1C0E1CDA00641F84 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C9D320501C0E1CDA00641F84 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C9D320531C0E1CDA00641F84 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C9D320551C0E1CDA00641F84 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C9D320581C0E1CDA00641F84 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -72,6 +73,9 @@
 		C9D320881C0E23C000641F84 /* haarcascade_righteye_2splits.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = haarcascade_righteye_2splits.xml; sourceTree = "<group>"; };
 		C9D320891C0E23C000641F84 /* haarcascade_lefteye_2splits.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = haarcascade_lefteye_2splits.xml; sourceTree = "<group>"; };
 		C9D3208A1C0E23C000641F84 /* lbpcascade_frontalface.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = lbpcascade_frontalface.xml; sourceTree = "<group>"; };
+		C9D320D61C0E531600641F84 /* DetectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetectionViewController.swift; sourceTree = "<group>"; };
+		C9D320D71C0E531600641F84 /* InstructionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstructionViewController.swift; sourceTree = "<group>"; };
+		C9D320DA1C0E533200641F84 /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +146,8 @@
 		C9D3204D1C0E1CDA00641F84 /* DozeDrivingPrevention */ = {
 			isa = PBXGroup;
 			children = (
+				C9D320D41C0E520900641F84 /* Views */,
+				C9D320D51C0E520900641F84 /* ViewControllers */,
 				C9D320851C0E23C000641F84 /* haarcascade_frontalface_alt2.xml */,
 				C9D320861C0E23C000641F84 /* haarcascade_eye.xml */,
 				C9D320871C0E23C000641F84 /* M. Rezaei- Closed Eye Classifier.xml */,
@@ -151,7 +157,6 @@
 				C9D320801C0E210A00641F84 /* haarcascade_eye_tree_eyeglasses.xml */,
 				C9D3207E1C0E20F500641F84 /* haarcascade_frontalface_alt.xml */,
 				C9D3204E1C0E1CDA00641F84 /* AppDelegate.swift */,
-				C9D320501C0E1CDA00641F84 /* ViewController.swift */,
 				C9D320521C0E1CDA00641F84 /* Main.storyboard */,
 				C9D320551C0E1CDA00641F84 /* Assets.xcassets */,
 				C9D320571C0E1CDA00641F84 /* LaunchScreen.storyboard */,
@@ -179,6 +184,23 @@
 				C9D320701C0E1CDA00641F84 /* Info.plist */,
 			);
 			path = DozeDrivingPreventionUITests;
+			sourceTree = "<group>";
+		};
+		C9D320D41C0E520900641F84 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		C9D320D51C0E520900641F84 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				C9D320D61C0E531600641F84 /* DetectionViewController.swift */,
+				C9D320D71C0E531600641F84 /* InstructionViewController.swift */,
+				C9D320DA1C0E533200641F84 /* SettingViewController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -374,10 +396,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9D320D91C0E531600641F84 /* InstructionViewController.swift in Sources */,
 				C9D3207D1C0E207900641F84 /* CameraUtil.swift in Sources */,
-				C9D320511C0E1CDA00641F84 /* ViewController.swift in Sources */,
 				C9D3204F1C0E1CDA00641F84 /* AppDelegate.swift in Sources */,
+				C9D320D81C0E531600641F84 /* DetectionViewController.swift in Sources */,
 				C9D320841C0E215B00641F84 /* Detector.mm in Sources */,
+				C9D320DB1C0E533200641F84 /* SettingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
