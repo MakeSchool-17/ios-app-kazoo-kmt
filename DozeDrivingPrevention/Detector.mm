@@ -22,7 +22,7 @@
 - (id)init {
     self = [super init];
     
-    // 分類器の読み込み
+    // read the classifier
     NSBundle *face_bundle = [NSBundle mainBundle];
     //    NSString *face_path = [face_bundle pathForResource:@"lbpcascade_frontalface" ofType:@"xml"];
     NSString *face_path = [face_bundle pathForResource:@"haarcascade_frontalface_alt" ofType:@"xml"];
@@ -48,7 +48,7 @@
 }
 
 - (UIImage *)recognizeFace:(UIImage *)image {
-    // UIImage -> cv::Mat変換
+    // Transfer UIImage -> cv::Mat
     CGColorSpaceRef colorSpace = CGImageGetColorSpace(image.CGImage);
     CGFloat cols = image.size.width;
     CGFloat rows = image.size.height;
@@ -75,7 +75,7 @@
     //                                cv::Size(30, 30));
     
     // FIXME
-    std::cout << "size of faces: " << faces.size() << std::endl;
+    std::cout << "number of faces: " << faces.size() << std::endl;
     
     
     // 顔の位置に丸を描く（結果の描画）
@@ -107,7 +107,18 @@
         //                                    cv::Size(10,10));
         
         // FIXME
-        std::cout << "size of eyes: " << eyes.size() << std::endl;
+        std::cout << "eyes[0]: " << eyes[0] << std::endl;
+        std::cout << "eyes[0].x: " << eyes[0].x << std::endl;
+        std::cout << "eyes[0].y: " << eyes[0].y << std::endl;
+        std::cout << "eyes[0].width: " << eyes[0].width << std::endl;
+        std::cout << "eyes[0].height: " << eyes[0].height << std::endl;
+        std::cout << "eyes[1]: " << eyes[1] << std::endl;
+        std::cout << "eyes[2]: " << eyes[2] << std::endl;
+        std::cout << "eyes[3]: " << eyes[3] << std::endl;
+        std::cout << "eyes[4]: " << eyes[4] << std::endl;
+        
+        // FIXME count the number, then return
+        std::cout << "number of eyes: " << eyes.size() << std::endl;
         std::cout << eyes.empty() << std::endl; // Detect eyes are open or not
         
         // draw eyes' positions
@@ -127,7 +138,7 @@
         
     }
     
-    // cv::Mat -> UIImage変換
+    // Transfer cv::Mat -> UIImage
     UIImage *resultImage = MatToUIImage(mat);
     
     return resultImage;
