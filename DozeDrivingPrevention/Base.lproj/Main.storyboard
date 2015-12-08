@@ -86,15 +86,23 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N1Q-hc-aaT" customClass="Draw2D" customModule="DozeDrivingPrevention" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="44" width="600" height="556"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="igQ-Hx-gbj" secondAttribute="trailing" id="19d-7N-5bB"/>
                             <constraint firstItem="1Oj-OE-ewP" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="2Oa-r3-8em"/>
                             <constraint firstAttribute="trailingMargin" secondItem="1Oj-OE-ewP" secondAttribute="trailing" constant="-20" id="Rh3-FZ-b2n"/>
+                            <constraint firstAttribute="trailing" secondItem="N1Q-hc-aaT" secondAttribute="trailing" id="URT-YP-Mbg"/>
                             <constraint firstItem="1Oj-OE-ewP" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="VkU-8O-XNy"/>
                             <constraint firstItem="igQ-Hx-gbj" firstAttribute="top" secondItem="1Oj-OE-ewP" secondAttribute="bottom" id="WU6-KW-jOC"/>
+                            <constraint firstItem="N1Q-hc-aaT" firstAttribute="top" secondItem="1Oj-OE-ewP" secondAttribute="bottom" id="lE9-BH-nSb"/>
+                            <constraint firstItem="N1Q-hc-aaT" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="q7W-Mc-4lR"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="igQ-Hx-gbj" secondAttribute="bottom" id="trZ-yd-V4J"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="N1Q-hc-aaT" secondAttribute="bottom" id="xKZ-Kg-8p0"/>
                             <constraint firstItem="igQ-Hx-gbj" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="zDx-gg-rYk"/>
                         </constraints>
                     </view>

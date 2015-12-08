@@ -14,22 +14,33 @@ class DetectionViewController: UIViewController, AVCaptureVideoDataOutputSampleB
     @IBOutlet weak var imageView: UIImageView!
     
     
-    // セッション
+    // Session
     var mySession : AVCaptureSession!
-    // カメラデバイス
+    // Camera device
     var myDevice : AVCaptureDevice!
-    // 出力先
+    // Output
     var myOutput : AVCaptureVideoDataOutput!
     
-    // 顔検出オブジェクト
+    // Object for face detection
     let detector = Detector()
+    
+    /*
+    // Make struct
+    struct Rectangle {
+        var x: Double
+        var y: Double
+        var width: Double
+        var height: Double
+        var isDetected: Bool
+    }
+    */
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // カメラを準備
+        // Prepare camera
         if initCamera() {
-            // 撮影開始
+            // Start to run
             mySession.startRunning()
         }
     }
@@ -128,17 +139,21 @@ class DetectionViewController: UIViewController, AVCaptureVideoDataOutputSampleB
     }
     
     
-    // 毎フレーム実行される処理
+    // Process which is executed in every frames
     func captureOutput(captureOutput: AVCaptureOutput!, didOutputSampleBuffer sampleBuffer: CMSampleBuffer!, fromConnection connection: AVCaptureConnection!)
     {
         dispatch_sync(dispatch_get_main_queue(), {
-            // UIImageへ変換
+            // Transfer to UIImage
             let image = CameraUtil.imageFromSampleBuffer(sampleBuffer)
-            
-            // 顔認識
+
+            // Face recognition
             let faceImage = self.detector.recognizeFace(image)
+//            var faceRectangle = Rectangle(x:0.0, y:0.0, width:0.0, height:0.0, isDetected: false)
+//            var rightEyeRectangle = Rectangle(x:0.0, y:0.0, width:0.0, height:0.0, isDetected: false)
+//            var leftEyeRectangle = Rectangle(x:0.0, y:0.0, width:0.0, height:0.0, isDetected: false)
+//            let faceImage = self.detector.recognizeFace(image, &faceRectangle, &rightEyeRectangle, &leftEyeRectangle)
             
-            // 表示
+            // Display
             self.imageView.image = faceImage
         })
     }
