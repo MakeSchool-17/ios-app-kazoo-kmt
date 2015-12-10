@@ -10,7 +10,9 @@ import UIKit
 
 class SettingViewController: UIViewController {
 
-    @IBAction func sliderSlided(sender: AnyObject) {
+    @IBAction func slideVolume(sender: AnyObject) {
+    }
+    @IBAction func slideReactionTime(sender: AnyObject) {
     }
     
     override func viewDidLoad() {

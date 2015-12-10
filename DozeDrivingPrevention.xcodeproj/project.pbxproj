@@ -28,6 +28,7 @@
 		C9D320D91C0E531600641F84 /* InstructionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D320D71C0E531600641F84 /* InstructionViewController.swift */; };
 		C9D320DB1C0E533200641F84 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D320DA1C0E533200641F84 /* SettingViewController.swift */; };
 		C9D320EE1C128DB700641F84 /* Draw2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D320ED1C128DB700641F84 /* Draw2D.swift */; };
+		C9D320F61C17777400641F84 /* WakeupAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D320F51C17777400641F84 /* WakeupAlert.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +79,7 @@
 		C9D320D71C0E531600641F84 /* InstructionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstructionViewController.swift; sourceTree = "<group>"; };
 		C9D320DA1C0E533200641F84 /* SettingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		C9D320ED1C128DB700641F84 /* Draw2D.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Draw2D.swift; sourceTree = "<group>"; };
+		C9D320F51C17777400641F84 /* WakeupAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WakeupAlert.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +168,7 @@
 				C9D3207C1C0E207900641F84 /* CameraUtil.swift */,
 				C9D320831C0E215B00641F84 /* Detector.mm */,
 				C9D320821C0E215B00641F84 /* DozeDrivingPrevention-Bridging-Header.h */,
+				C9D320F51C17777400641F84 /* WakeupAlert.swift */,
 			);
 			path = DozeDrivingPrevention;
 			sourceTree = "<group>";
@@ -400,6 +403,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C9D320D91C0E531600641F84 /* InstructionViewController.swift in Sources */,
+				C9D320F61C17777400641F84 /* WakeupAlert.swift in Sources */,
 				C9D320EE1C128DB700641F84 /* Draw2D.swift in Sources */,
 				C9D3207D1C0E207900641F84 /* CameraUtil.swift in Sources */,
 				C9D3204F1C0E1CDA00641F84 /* AppDelegate.swift in Sources */,

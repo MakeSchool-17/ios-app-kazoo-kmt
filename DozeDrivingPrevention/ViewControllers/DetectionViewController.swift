@@ -12,7 +12,7 @@ import AVFoundation
 class DetectionViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDelegate {
 
     @IBOutlet weak var imageView: UIImageView!
-    
+    @IBOutlet weak var draw2D: Draw2D!
     
     // Session
     var mySession : AVCaptureSession!
@@ -23,17 +23,8 @@ class DetectionViewController: UIViewController, AVCaptureVideoDataOutputSampleB
     
     // Object for face detection
     let detector = Detector()
-    
-    /*
-    // Make struct
-    struct Rectangle {
-        var x: Double
-        var y: Double
-        var width: Double
-        var height: Double
-        var isDetected: Bool
-    }
-    */
+    // Object for alert
+    let wakeupAlert = WakeupAlert()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,19 +47,18 @@ class DetectionViewController: UIViewController, AVCaptureVideoDataOutputSampleB
         }
     }
     
-    // カメラの準備処理
+    // Preparation processing for camera
     func initCamera() -> Bool {
-        // セッションの作成.
+        // make session
         mySession = AVCaptureSession()
         
-        // 解像度の指定.
+        // define resolution
         mySession.sessionPreset = AVCaptureSessionPresetMedium
         
-        
-        // デバイス一覧の取得.
+        // get whole devices
         let devices = AVCaptureDevice.devices()
         
-        // バックカメラをmyDeviceに格納.
+        // store back camera to myDevice
         for device in devices {
             if(device.position == AVCaptureDevicePosition.Front){
                 //                if(device.position == AVCaptureDevicePosition.Back){
@@ -79,7 +69,7 @@ class DetectionViewController: UIViewController, AVCaptureVideoDataOutputSampleB
             return false
         }
         
-        // バックカメラからVideoInputを取得.
+        // get VideoInput from back camera
         var myInput: AVCaptureDeviceInput! = nil
         do {
             myInput = try AVCaptureDeviceInput(device: myDevice) as AVCaptureDeviceInput
@@ -87,20 +77,20 @@ class DetectionViewController: UIViewController, AVCaptureVideoDataOutputSampleB
             print(error)
         }
         
-        // セッションに追加.
+        // Add to session
         if mySession.canAddInput(myInput) {
             mySession.addInput(myInput)
         } else {
             return false
         }
         
-        // 出力先を設定
+        // set output direction
         myOutput = AVCaptureVideoDataOutput()
         myOutput.videoSettings = [ kCVPixelBufferPixelFormatTypeKey: Int(kCVPixelFormatType_32BGRA) ]
         
         
         
-        // FPSを設定
+        // set FPS
         do {
             try myDevice.lockForConfiguration()
             
@@ -111,22 +101,22 @@ class DetectionViewController: UIViewController, AVCaptureVideoDataOutputSampleB
             return false
         }
         
-        // デリゲートを設定
+        // set delegate
         let queue: dispatch_queue_t = dispatch_queue_create("myqueue",  nil)
         myOutput.setSampleBufferDelegate(self, queue: queue)
         
         
-        // 遅れてきたフレームは無視する
+        // ignore delayed frame
         myOutput.alwaysDiscardsLateVideoFrames = true
         
-        // セッションに追加.
+        // add to session
         if mySession.canAddOutput(myOutput) {
             mySession.addOutput(myOutput)
         } else {
             return false
         }
         
-        // カメラの向きを合わせる
+        // set camera's rotation
         for connection in myOutput.connections {
             if let conn = connection as? AVCaptureConnection {
                 if conn.supportsVideoOrientation {
@@ -147,16 +137,17 @@ class DetectionViewController: UIViewController, AVCaptureVideoDataOutputSampleB
             let image = CameraUtil.imageFromSampleBuffer(sampleBuffer)
 
             // Face recognition
-            let faceImage = self.detector.recognizeFace(image)
-//            var faceRectangle = Rectangle(x:0.0, y:0.0, width:0.0, height:0.0, isDetected: false)
-//            var rightEyeRectangle = Rectangle(x:0.0, y:0.0, width:0.0, height:0.0, isDetected: false)
-//            var leftEyeRectangle = Rectangle(x:0.0, y:0.0, width:0.0, height:0.0, isDetected: false)
-//            let faceImage = self.detector.recognizeFace(image, &faceRectangle, &rightEyeRectangle, &leftEyeRectangle)
+            let facialFeatures = self.detector.recognizeFace(image)
+//            let faceImage = self.detector.recognizeFace(image)
             
+            // Wakeup alert
+            self.wakeupAlert.makeAlert(facialFeatures.eye1.isDetected, isEye2Detected:facialFeatures.eye2.isDetected)
+
             // Display
-            self.imageView.image = faceImage
+            self.imageView.image = image
+            
+            self.draw2D.drawFaceRectangle(facialFeatures)
+            self.draw2D.setNeedsDisplay()
         })
     }
-    
-    
 }

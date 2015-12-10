@@ -13,17 +13,22 @@ typedef struct {
     std::list<std::vector<cv::Rect>> listOfEyesLocation;
 }FaceLocationAndListOfEyesLocation;
 */
-/*
-struct FaceAndEyes {
-    double xPosition;
-    double yPosition;
-    double width;
-    double height;
+
+
+
+typedef struct {
+    CGRect featureRect; // this includes x, y, width and height
     bool isDetected;
-};
- */
+}Feature;
+
+typedef struct {
+    Feature face;
+    Feature eye1;
+    Feature eye2;
+}FacialFeatures;
+
 @interface Detector: NSObject
 - (id)init;
-- (UIImage *)recognizeFace:(UIImage *)image;
-//- (FaceLocationAndListOfEyesLocation)recognizeFace:(UIImage *)image;
+//- (UIImage *)recognizeFace:(UIImage *)image;
+- (FacialFeatures)recognizeFace:(UIImage *)image;
 @end

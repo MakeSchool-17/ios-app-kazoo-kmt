@@ -44,7 +44,15 @@
     
 }
 
-- (UIImage *)recognizeFace:(UIImage *)image {
+- (FacialFeatures)recognizeFace:(UIImage *)image {
+//- (UIImage *)recognizeFace:(UIImage *)image {
+
+    FacialFeatures facialFeatures;
+
+    facialFeatures.face.isDetected = false;
+    facialFeatures.eye1.isDetected = false;
+    facialFeatures.eye2.isDetected = false;
+    
     // Transfer UIImage -> cv::Mat
     CGColorSpaceRef colorSpace = CGImageGetColorSpace(image.CGImage);
     CGFloat cols = image.size.width;
@@ -69,10 +77,12 @@
                                   faces,
                                   1.1, 2,
                                   CV_HAAR_SCALE_IMAGE,
-                                  cv::Size(60, 60));
+                                  cv::Size(60, 60)); // ここは最終的にスマホの設置位置を決めたうえで調整が必要
     //                                cv::Size(30, 30));
     std::cout << "number of faces: " << faces.size() << std::endl;
-    std::vector<cv::Rect>::const_iterator r = faces.begin();
+    
+    std::vector<cv::Rect>::iterator r = faces.begin();
+//    std::vector<cv::Rect>::const_iterator r = faces.begin();
     for(; r != faces.end(); ++r) {
         cv::Point face_center;
         int face_radius;
@@ -81,14 +91,20 @@
         face_radius = cv::saturate_cast<int>((r->width + r->height) / 2);
         cv::circle(mat, face_center, face_radius, cv::Scalar(80,80,255), 3, 8, 0 );
         std::cout << "faces rect: " << *r << std::endl;
-
+        
+        // Insert value to structure
+        facialFeatures.face.featureRect.origin.x = r->x;
+        facialFeatures.face.featureRect.origin.y = r->y;
+        facialFeatures.face.featureRect.size.width = r->width;
+        facialFeatures.face.featureRect.size.height = r->height;
+        facialFeatures.face.isDetected = true;
+        
     // In each face, detect eyes
         cv::Mat faceROI = mat(*r);
-        /*
-         // Cut lower parts in face
-         r->height = r->height * 0.3;
-         */ // When changing the factor, you need to change const_iterator to interator
+         // Cut a lower half part in face
+         r->height = r->height * 0.5; // もしこれでノイズが取れなければ、目の数でスクリーニングする予定
         
+         // When changing the factor, you need to change const_iterator to interator
         std::vector<cv::Rect> eyes;
         eyes_cascade.detectMultiScale(faceROI, eyes,
                                       1.1, 3,
@@ -99,8 +115,10 @@
         std::cout << "number of eyes: " << eyes.size() << std::endl;
         std::cout << "eyes are closed?: " << eyes.empty() << std::endl; // Detect eyes are open or not
         
+        
         // draw eyes' positions
         std::vector<cv::Rect>::const_iterator nr = eyes.begin(); // n means nested
+        int counterForEye = 0; // to store eyes value to both eye1Status and eye2Status
         for(; nr != eyes.end(); ++nr) {
             cv::Point eyes_center;
             int eyes_radius;
@@ -109,13 +127,33 @@
             eyes_radius = cv::saturate_cast<int>((nr->width + nr->height) / 2);
             cv::circle(mat, eyes_center, eyes_radius, cv::Scalar(80,255,80), 3, 8, 0 ); // last three parameters are Tichness, Linetype and NoShift (each shift value devides the rectangle size and location by 2)
             std::cout << "eyes rect: " << *nr << std::endl;
-        }
+            
+            // Insert value to structure
+            if (counterForEye == 0) {
+                facialFeatures.eye1.featureRect.origin.x = r->x + nr->x;;
+                facialFeatures.eye1.featureRect.origin.y = r->y + nr->y;
+                facialFeatures.eye1.featureRect.size.width = nr->width;
+                facialFeatures.eye1.featureRect.size.height = nr->height;
+                facialFeatures.eye1.isDetected = true;
+                
+                counterForEye += 1;
+                
+            } else {
+                facialFeatures.eye2.featureRect.origin.x = r->x + nr->x;;
+                facialFeatures.eye2.featureRect.origin.y = r->y + nr->y;
+                facialFeatures.eye2.featureRect.size.width = nr->width;
+                facialFeatures.eye2.featureRect.size.height = nr->height;
+                facialFeatures.eye2.isDetected = true;
+            }
+            
+         }
     }
     
     // Transfer cv::Mat -> UIImage
-    UIImage *resultImage = MatToUIImage(mat);
+//    UIImage *resultImage = MatToUIImage(mat);
     
-    return resultImage;
+//    return resultImage;
+    return facialFeatures;
 }
 
 @end

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -107,6 +107,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="draw2D" destination="N1Q-hc-aaT" id="v7Q-lP-7BJ"/>
                         <outlet property="imageView" destination="igQ-Hx-gbj" id="7eB-3G-B6b"/>
                     </connections>
                 </viewController>
@@ -150,16 +151,33 @@
                                     <action selector="sliderSlided:" destination="Tbu-uo-Dzy" eventType="valueChanged" id="DmZ-XX-LGj"/>
                                 </connections>
                             </slider>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="8fV-7K-pjU">
+                                <rect key="frame" x="218" y="426" width="164" height="31"/>
+                                <connections>
+                                    <action selector="slideReactionTime:" destination="Tbu-uo-Dzy" eventType="valueChanged" id="RiC-UK-O76"/>
+                                </connections>
+                            </slider>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reaction time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U4g-un-q2m">
+                                <rect key="frame" x="248" y="375.5" width="105" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="ME3-ML-s6M" firstAttribute="centerX" secondItem="b0V-Xn-BjP" secondAttribute="centerX" id="0PN-pn-zfm"/>
                             <constraint firstItem="ME3-ML-s6M" firstAttribute="centerY" secondItem="b0V-Xn-BjP" secondAttribute="centerY" id="6SK-XH-Uy4"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ME3-ML-s6M" secondAttribute="trailing" constant="200" id="Qcf-eI-lBc"/>
+                            <constraint firstItem="zb8-qW-N3v" firstAttribute="top" secondItem="8fV-7K-pjU" secondAttribute="bottom" constant="100" id="VFp-qw-2sI"/>
                             <constraint firstAttribute="trailingMargin" secondItem="m9i-aK-XTP" secondAttribute="trailing" constant="-20" id="aZG-rS-hvl"/>
                             <constraint firstItem="m9i-aK-XTP" firstAttribute="top" secondItem="b0V-Xn-BjP" secondAttribute="topMargin" id="brj-cF-FES"/>
                             <constraint firstItem="m9i-aK-XTP" firstAttribute="leading" secondItem="b0V-Xn-BjP" secondAttribute="leadingMargin" constant="-20" id="c5T-oZ-X9i"/>
+                            <constraint firstItem="8fV-7K-pjU" firstAttribute="top" secondItem="U4g-un-q2m" secondAttribute="bottom" constant="30" id="i3J-hv-xsG"/>
                             <constraint firstItem="ME3-ML-s6M" firstAttribute="top" secondItem="uOa-Hx-dey" secondAttribute="bottom" constant="30" id="nD8-qB-9bF"/>
+                            <constraint firstAttribute="trailing" secondItem="8fV-7K-pjU" secondAttribute="trailing" constant="220" id="nFv-Qs-QXP"/>
+                            <constraint firstItem="U4g-un-q2m" firstAttribute="centerX" secondItem="b0V-Xn-BjP" secondAttribute="centerX" id="ooH-ps-l4M"/>
+                            <constraint firstItem="8fV-7K-pjU" firstAttribute="leading" secondItem="b0V-Xn-BjP" secondAttribute="leading" constant="220" id="smd-r7-rhr"/>
                             <constraint firstItem="ME3-ML-s6M" firstAttribute="leading" secondItem="b0V-Xn-BjP" secondAttribute="leadingMargin" constant="200" id="svB-NE-KaU"/>
                             <constraint firstItem="uOa-Hx-dey" firstAttribute="centerX" secondItem="b0V-Xn-BjP" secondAttribute="centerX" id="uXm-hr-GBc"/>
                         </constraints>
@@ -171,6 +189,23 @@
                 <exit id="Kgp-ar-dPj" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="859" y="331"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="jOr-TU-6Nb">
+            <objects>
+                <viewController id="b1w-WO-nse" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="APa-1Y-1Fz"/>
+                        <viewControllerLayoutGuide type="bottom" id="Whg-Oy-ECG"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="zUv-S2-3j5">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ieh-vK-Aj8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
         </scene>
     </scenes>
 </document>
