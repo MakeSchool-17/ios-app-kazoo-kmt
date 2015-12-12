@@ -29,6 +29,6 @@ typedef struct {
 
 @interface Detector: NSObject
 - (id)init;
-//- (UIImage *)recognizeFace:(UIImage *)image;
+//- (UIImage *)recognizeFace:(UIImage *)image; // for debugging
 - (FacialFeatures)recognizeFace:(UIImage *)image;
 @end

@@ -53,7 +53,8 @@ class DetectionViewController: UIViewController, AVCaptureVideoDataOutputSampleB
         mySession = AVCaptureSession()
         
         // define resolution
-        mySession.sessionPreset = AVCaptureSessionPresetMedium
+         mySession.sessionPreset = AVCaptureSessionPresetMedium
+//        mySession.sessionPreset = AVCaptureSessionPreset352x288
         
         // get whole devices
         let devices = AVCaptureDevice.devices()
@@ -138,12 +139,14 @@ class DetectionViewController: UIViewController, AVCaptureVideoDataOutputSampleB
 
             // Face recognition
             let facialFeatures = self.detector.recognizeFace(image)
-//            let faceImage = self.detector.recognizeFace(image)
+//            let faceImage = self.detector.recognizeFace(image) // For debugging
             
-            // Wakeup alert
-            self.wakeupAlert.makeAlert(facialFeatures.eye1.isDetected, isEye2Detected:facialFeatures.eye2.isDetected)
+//            // Wakeup alert
+            self.wakeupAlert.makeAlert(facialFeatures.face.isDetected, isEye1Detected:facialFeatures.eye1.isDetected, isEye2Detected:facialFeatures.eye2.isDetected)
 
             // Display
+//            self.imageView.image = faceImage // For debugging
+            // FIXME need to change to show directly from camera
             self.imageView.image = image
             
             self.draw2D.drawFaceRectangle(facialFeatures)

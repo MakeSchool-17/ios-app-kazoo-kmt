@@ -12,13 +12,16 @@ import AudioToolbox
 class WakeupAlert {
 //class WakeupAlert: NSObject {
     
-    func makeAlert (isEye1Detected: Bool, isEye2Detected: Bool) {
+    func makeAlert (isFaceDetected: Bool, isEye1Detected: Bool, isEye2Detected: Bool) {
         // FIXME Arrayを使って一定時間分を格納するように変更する必要あり
         // FIXME Setting ViewからのDelegateで、反応時間を変更できるようにする
-        if (isEye1Detected == false && isEye2Detected == false) {
-            let soundIdRing:SystemSoundID = 1005  // alarm.caf
-            AudioServicesPlaySystemSound(soundIdRing)
-            
+        // FIXME アラームを選べるようにすることもできる？
+        // Before checking eyes, face should be detected
+        if (isFaceDetected == true) {
+            if (isEye1Detected == false && isEye2Detected == false) {
+                let soundIdRing:SystemSoundID = 1005  // alarm.caf
+                AudioServicesPlaySystemSound(soundIdRing)
+            }
         }
     }
 }

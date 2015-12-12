@@ -12,7 +12,7 @@ import AVFoundation
 
 class CameraUtil {
     
-    // sampleBufferからUIImageへ変換
+    // transform from sampleBuffer to UIImage
     class func imageFromSampleBuffer(sampleBuffer: CMSampleBufferRef) -> UIImage {
         let imageBuffer: CVImageBufferRef! = CMSampleBufferGetImageBuffer(sampleBuffer)
         
