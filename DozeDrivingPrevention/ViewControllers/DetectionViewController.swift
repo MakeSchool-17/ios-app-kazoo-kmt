@@ -21,6 +21,8 @@ class DetectionViewController: UIViewController, AVCaptureVideoDataOutputSampleB
     // Output
     var myOutput : AVCaptureVideoDataOutput!
     
+    var previewLayer : AVCaptureVideoPreviewLayer!
+    
     // Object for face detection
     let detector = Detector()
     // Object for alert
@@ -53,8 +55,8 @@ class DetectionViewController: UIViewController, AVCaptureVideoDataOutputSampleB
         mySession = AVCaptureSession()
         
         // define resolution
-         mySession.sessionPreset = AVCaptureSessionPresetMedium
-//        mySession.sessionPreset = AVCaptureSessionPreset352x288
+//         mySession.sessionPreset = AVCaptureSessionPresetMedium
+        mySession.sessionPreset = AVCaptureSessionPreset352x288
         
         // get whole devices
         let devices = AVCaptureDevice.devices()

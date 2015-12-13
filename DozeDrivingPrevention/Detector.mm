@@ -73,21 +73,18 @@
     CGContextRelease(contextRef);
  
     // transform to gray scale
-    cv::Mat gray_mat(rows, cols, CV_8UC4);
-    cv::cvtColor(mat, gray_mat, CV_BGR2GRAY);
-
-    // FIXME
+//    cv::Mat gray_mat(rows, cols, CV_8UC4);
+//    cv::cvtColor(mat, gray_mat, CV_BGR2GRAY);
     // decrease image size in order to decrease processing time
-    double scale = 1.0;
-    cv::Mat smallImg(cv::saturate_cast<int>(gray_mat.rows/scale), cv::saturate_cast<int>(gray_mat.cols/scale), CV_8UC1);
-    cv::resize(gray_mat, smallImg, smallImg.size(), 0, 0, cv::INTER_LINEAR);
-    cv::equalizeHist(smallImg, smallImg);
-    
-    
+//    double scale = 1.0;
+//    cv::Mat smallImg(cv::saturate_cast<int>(gray_mat.rows/scale), cv::saturate_cast<int>(gray_mat.cols/scale), CV_8UC1);
+//    cv::resize(gray_mat, smallImg, smallImg.size(), 0, 0, cv::INTER_LINEAR);
+//    cv::equalizeHist(smallImg, smallImg);
     
     // Face detection (image, output rectangle, scale for size reduction, minimum number of rectungle, flag, mimimum size of rectungle)
     std::vector<cv::Rect> faces; // Rect is defined by position of rectungle and length of row and column
-    face_cascade.detectMultiScale(smallImg,
+//    face_cascade.detectMultiScale(smallImg,
+    face_cascade.detectMultiScale(mat,
                                   faces,
                                   1.1, 2,
                                   CV_HAAR_SCALE_IMAGE,
@@ -98,6 +95,8 @@
     std::vector<cv::Rect>::iterator r = faces.begin();
 //    std::vector<cv::Rect>::const_iterator r = faces.begin();
     for(; r != faces.end(); ++r) {
+        // for debugging
+        /*
         cv::Point face_center;
         int face_radius;
         face_center.x = cv::saturate_cast<int>((r->x + r->width*0.5));
@@ -106,7 +105,7 @@
 //        cv::circle(mat, face_center, face_radius, cv::Scalar(80,80,255), 3, 8, 0 );
         cv::circle(smallImg, face_center, face_radius, cv::Scalar(80,80,255), 3, 8, 0 );
         std::cout << "faces rect: " << *r << std::endl;
-        
+        */
         // Insert value to structure
         facialFeatures.face.featureRect.origin.x = r->x;
         facialFeatures.face.featureRect.origin.y = r->y;
@@ -130,11 +129,12 @@
         std::cout << "number of eyes: " << eyes.size() << std::endl;
         std::cout << "eyes are closed?: " << eyes.empty() << std::endl; // Detect eyes are open or not
         
-        
         // draw eyes' positions
         std::vector<cv::Rect>::const_iterator nr = eyes.begin(); // n means nested
         int counterForEye = 0; // to store eyes value to both eye1Status and eye2Status
         for(; nr != eyes.end(); ++nr) {
+            // for debugging
+            /*
             cv::Point eyes_center;
             int eyes_radius;
             eyes_center.x = cv::saturate_cast<int>((r->x + nr->x + nr->width*0.5));
@@ -142,6 +142,7 @@
             eyes_radius = cv::saturate_cast<int>((nr->width + nr->height) / 2);
             cv::circle(smallImg, eyes_center, eyes_radius, cv::Scalar(80,255,80), 3, 8, 0 ); // last three parameters are Tichness, Linetype and NoShift (each shift value devides the rectangle size and location by 2)
 //            cv::circle(mat, eyes_center, eyes_radius, cv::Scalar(80,255,80), 3, 8, 0 ); // last three parameters are Tichness, Linetype and NoShift (each shift value devides the rectangle size and location by 2)
+             */
             std::cout << "eyes rect: " << *nr << std::endl;
             
             // Insert value to structure
@@ -161,13 +162,12 @@
                 facialFeatures.eye2.featureRect.size.height = nr->height;
                 facialFeatures.eye2.isDetected = true;
             }
-            
+        
          }
     }
     
     // Transfer cv::Mat -> UIImage
 //    UIImage *resultImage = MatToUIImage(smallImg); for debugging
-    
 //    return resultImage; // for debugging
     return facialFeatures;
 }

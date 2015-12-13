@@ -10,8 +10,6 @@ import UIKit
 
 class SettingViewController: UIViewController {
 
-    @IBAction func slideVolume(sender: AnyObject) {
-    }
     @IBAction func slideReactionTime(sender: AnyObject) {
     }
     
