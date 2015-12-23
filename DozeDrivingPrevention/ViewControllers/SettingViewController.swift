@@ -10,8 +10,26 @@ import UIKit
 
 class SettingViewController: UIViewController {
 
-    @IBAction func slideReactionTime(sender: AnyObject) {
+    @IBOutlet weak var label: UILabel!
+    @IBOutlet weak var slider: UISlider!
+    
+    @IBAction func sliderValueChanged(sender: UISlider) {
+        
+        label.text = "\(sender.value)"
+        
+        // Change responseTime by calling Singleton
+        UserDefaultSingleton.sharedUserDefault.reactionTime = sender.value
+
     }
+
+    override func viewWillAppear(animated: Bool)
+    {
+        //Load the value from NSUserDefault
+        let value = UserDefaultSingleton.sharedUserDefault.reactionTime ?? 0.0 // FIXME Need to set the initial value
+        label.text =  "\(value)"
+        slider.value = value
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,6 +37,7 @@ class SettingViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

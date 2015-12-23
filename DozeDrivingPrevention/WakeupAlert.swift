@@ -10,12 +10,10 @@ import UIKit
 import AudioToolbox
 
 class WakeupAlert {
-//class WakeupAlert: NSObject {
     
     func makeAlert (isFaceDetected: Bool, isEye1Detected: Bool, isEye2Detected: Bool) {
         // FIXME Arrayを使って一定時間分を格納するように変更する必要あり
-        // FIXME Setting ViewからのDelegateで、反応時間を変更できるようにする
-        // FIXME アラームを選べるようにすることもできる？
+        // FIXME Use singleton to make change for reaction time
         // Before checking eyes, face should be detected
         if (isFaceDetected == true) {
             if (isEye1Detected == false && isEye2Detected == false) {
@@ -24,4 +22,5 @@ class WakeupAlert {
             }
         }
     }
+    
 }
