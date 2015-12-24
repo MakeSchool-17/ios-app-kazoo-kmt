@@ -97,7 +97,7 @@ class DetectionViewController: UIViewController, AVCaptureVideoDataOutputSampleB
         do {
             try myDevice.lockForConfiguration()
             
-            myDevice.activeVideoMinFrameDuration = CMTimeMake(1, 15)
+            myDevice.activeVideoMinFrameDuration = CMTimeMake(1, 15) // FIXME 現在は１５分の１秒が１フレームと設定
             myDevice.unlockForConfiguration()
         } catch let error {
             print("lock error: \(error)")
@@ -144,7 +144,7 @@ class DetectionViewController: UIViewController, AVCaptureVideoDataOutputSampleB
 //            let faceImage = self.detector.recognizeFace(image) // For debugging
             
 //            // Wakeup alert
-            self.wakeupAlert.makeAlert(facialFeatures.face.isDetected, isEye1Detected:facialFeatures.eye1.isDetected, isEye2Detected:facialFeatures.eye2.isDetected)
+            self.wakeupAlert.checkAlert(facialFeatures.face.isDetected, isEye1Detected:facialFeatures.eye1.isDetected, isEye2Detected:facialFeatures.eye2.isDetected)
 
             // Display
 //            self.imageView.image = faceImage // For debugging

@@ -21,12 +21,13 @@ class UserDefaultSingleton {
         }
     }
     
-    // Set array to count how much time his/her eyes are closed
-//    var arrayForCount: [Bool] = []
+    // Set counter how much time his/her eyes are closed
+    var counter: Float
     
     private init() {
         //read reactionTime from NSUserDefault
         reactionTime = NSUserDefaults.standardUserDefaults().objectForKey(keyForReactionTime) as! Float?
+        counter = 0
         
     }
 
