@@ -33,7 +33,8 @@
     
     // Add cascade for eyes
     NSBundle *eyes_bundle = [NSBundle mainBundle];
-    NSString *eyes_path = [eyes_bundle pathForResource:@"haarcascade_eye_tree_eyeglasses" ofType:@"xml"];
+    NSString *eyes_path = [eyes_bundle pathForResource:@"haarcascade_eye" ofType:@"xml"];
+//    NSString *eyes_path = [eyes_bundle pathForResource:@"haarcascade_eye_tree_eyeglasses" ofType:@"xml"];
     std::string eyes_cascadeName = (char *)[eyes_path UTF8String];
     
     if(!eyes_cascade.load(eyes_cascadeName)) {
@@ -88,7 +89,8 @@
                                   faces,
                                   1.1, 2,
                                   CV_HAAR_SCALE_IMAGE,
-                                  cv::Size(60, 60)); // ここは最終的にスマホの設置位置を決めたうえで調整が必要
+                                  cv::Size(80, 80)); // ここは最終的にスマホの設置位置を決めたうえで調整が必要
+//    cv::Size(60, 60)); // ここは最終的にスマホの設置位置を決めたうえで調整が必要
     //                                cv::Size(30, 30));
     std::cout << "number of faces: " << faces.size() << std::endl;
     
@@ -124,7 +126,8 @@
                                       1.1, 3,
                                       CV_HAAR_SCALE_IMAGE,
 //                                      cv::Size(30,30));
-                                            cv::Size(10,10));
+//                                      cv::Size(10,10));
+                                      cv::Size(5,5));
         
         std::cout << "number of eyes: " << eyes.size() << std::endl;
         std::cout << "eyes are closed?: " << eyes.empty() << std::endl; // Detect eyes are open or not

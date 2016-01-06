@@ -22,7 +22,7 @@ class Draw2D: UIView {
         // Draw face
         let shapeView = CAShapeLayer()
         shapeView.fillColor = UIColor.clearColor().CGColor
-        shapeView.strokeColor = UIColor.greenColor().CGColor
+        shapeView.strokeColor = UIColor.blueColor().CGColor
         shapeView.lineWidth = 2.0
         let faceRect = facialFeatures.face.featureRect
         let faceRectPath = UIBezierPath(roundedRect: faceRect, cornerRadius: 8.0)
@@ -31,7 +31,7 @@ class Draw2D: UIView {
         // Draw eye1
         let eye1shapeView = CAShapeLayer()
         eye1shapeView.fillColor = UIColor.clearColor().CGColor
-        eye1shapeView.strokeColor = UIColor.blueColor().CGColor
+        eye1shapeView.strokeColor = UIColor.cyanColor().CGColor
         eye1shapeView.lineWidth = 2.0
         let eye1Rect = facialFeatures.eye1.featureRect
         let eye1RectPath = UIBezierPath(roundedRect: eye1Rect, cornerRadius: 4.0)
@@ -40,7 +40,7 @@ class Draw2D: UIView {
         // Draw eye2
         let eye2shapeView = CAShapeLayer()
         eye2shapeView.fillColor = UIColor.clearColor().CGColor
-        eye2shapeView.strokeColor = UIColor.blueColor().CGColor
+        eye2shapeView.strokeColor = UIColor.cyanColor().CGColor
         eye2shapeView.lineWidth = 2.0
         let eye2Rect = facialFeatures.eye2.featureRect
         let eye2RectPath = UIBezierPath(roundedRect: eye2Rect, cornerRadius: 4.0)

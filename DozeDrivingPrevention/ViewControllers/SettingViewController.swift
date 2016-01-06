@@ -25,7 +25,7 @@ class SettingViewController: UIViewController {
     override func viewWillAppear(animated: Bool)
     {
         //Load the value from NSUserDefault
-        let value = UserDefaultSingleton.sharedUserDefault.reactionTime ?? 0.5 // FIXME Need to set the initial value （現在は最大値１に設定しており、その半分の０．５を初期値に設定）
+        let value = UserDefaultSingleton.sharedUserDefault.reactionTime ?? 1.0// FIXME Initial value
         label.text =  "\(value)"
         slider.value = value
     }

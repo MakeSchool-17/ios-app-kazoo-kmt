@@ -15,6 +15,7 @@ class WakeupAlert {
         // 1. If closed both eyes, count twice. If closed one eye, count once. If opened eyes and count is not zero or negative, discount once. (need adjustment)
         if (isFaceDetected == true) {
             if (isEye1Detected == false && isEye2Detected == false) {
+                // Both eyes are closed
                 // FIXME ここのreactionTimeがしきい値となる。
                 // ２秒両目を閉じると警報を鳴らすようにしようとすると、２秒÷15フレーム＝1フレーム0.13を加算するようにする。片目の場合はその半分の0.06を加算するようにする
                 if (UserDefaultSingleton.sharedUserDefault.counter < UserDefaultSingleton.sharedUserDefault.reactionTime) {

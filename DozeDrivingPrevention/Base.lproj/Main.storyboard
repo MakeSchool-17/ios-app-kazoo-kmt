@@ -18,10 +18,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="How to use this application: Please put your phone in front of you." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="8tR-nz-tbv">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="- Please put your phone in front of you. " translatesAutoresizingMaskIntoConstraints="NO" id="8tR-nz-tbv">
                                 <rect key="frame" x="20" y="64" width="560" height="492"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="0.090196078431372548" green="0.066666666666666666" blue="0.34509803921568627" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
@@ -34,9 +35,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Instruction" id="gt0-DQ-ryu">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="6aB-Tf-YvD">
+                        <barButtonItem key="leftBarButtonItem" title="Back" style="plain" id="6aB-Tf-YvD">
                             <connections>
-                                <segue destination="ZCX-yA-97r" kind="unwind" unwindAction="unwindToSegue:" id="Abh-67-63u"/>
+                                <segue destination="ZCX-yA-97r" kind="unwind" unwindAction="unwindToSegue:" id="suQ-LC-Yhr"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -67,8 +68,12 @@
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ruP-8d-1CE">
                                 <rect key="frame" x="0.0" y="556" width="600" height="44"/>
                                 <items>
-                                    <barButtonItem title="Do not show face" id="JIf-e1-D39"/>
+                                    <barButtonItem title="Hide face" id="JIf-e1-D39">
+                                        <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    </barButtonItem>
                                 </items>
+                                <color key="tintColor" red="0.94901960784313721" green="0.95686274509803915" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </toolbar>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N1Q-hc-aaT" customClass="Draw2D" customModule="DozeDrivingPrevention" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="64" width="600" height="492"/>
@@ -146,17 +151,19 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reaction time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U4g-un-q2m">
                                 <rect key="frame" x="248" y="234" width="105" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.090196078431372548" green="0.066666666666666666" blue="0.34509803921568627" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Value" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NYS-EP-7I9">
                                 <rect key="frame" x="279" y="345" width="42" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.090196078431372548" green="0.066666666666666666" blue="0.34509803921568627" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="2" translatesAutoresizingMaskIntoConstraints="NO" id="8fV-7K-pjU">
                                 <rect key="frame" x="198" y="285" width="204" height="31"/>
+                                <color key="tintColor" red="0.37254901960784315" green="0.88235294117647056" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
+                                <rect key="contentStretch" x="0.0" y="0.0" width="1" height="0.90000000000000002"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="BRy-uv-tgS"/>
                                     <constraint firstAttribute="height" constant="30" id="S6T-CB-FTi"/>
@@ -198,9 +205,9 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Setting" id="MIl-4A-qcr">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Z2Y-Sh-QcZ">
+                        <barButtonItem key="leftBarButtonItem" systemItem="done" id="Z2Y-Sh-QcZ">
                             <connections>
-                                <segue destination="Kgp-ar-dPj" kind="unwind" unwindAction="unwindToSegue:" id="xry-NI-2AV"/>
+                                <segue destination="Kgp-ar-dPj" kind="unwind" unwindAction="unwindToSegue:" id="YNy-wj-uXd"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -219,9 +226,15 @@
         <scene sceneID="YuO-PK-nNp">
             <objects>
                 <navigationController id="8MA-k7-cYX" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="lnP-cg-3ah">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="lnP-cg-3ah">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" red="0.94901960784313721" green="0.95686274509803915" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.37254901960784315" green="0.88235294117647056" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                            <color key="textColor" red="0.94901960784313721" green="0.95686274509803915" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Ybc-eU-7mR"/>
