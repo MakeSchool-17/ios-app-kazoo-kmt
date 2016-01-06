@@ -75,6 +75,14 @@
                                 <color key="tintColor" red="0.94901960784313721" green="0.95686274509803915" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </toolbar>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m2P-5j-rrg">
+                                <rect key="frame" x="10" y="566" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VN7-A8-HQa">
+                                <rect key="frame" x="20" y="576" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N1Q-hc-aaT" customClass="Draw2D" customModule="DozeDrivingPrevention" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="64" width="600" height="492"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -148,20 +156,33 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reaction time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U4g-un-q2m">
-                                <rect key="frame" x="248" y="234" width="105" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reaction time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U4g-un-q2m">
+                                <rect key="frame" x="244.5" y="178.5" width="112.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <color key="textColor" red="0.090196078431372548" green="0.066666666666666666" blue="0.34509803921568627" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Night mode" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kJI-J4-f2X">
+                                <rect key="frame" x="253" y="339.5" width="95" height="20.5"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" red="0.090196078430000007" green="0.066666666669999999" blue="0.34509803919999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Value" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NYS-EP-7I9">
-                                <rect key="frame" x="279" y="345" width="42" height="20.5"/>
+                                <rect key="frame" x="279" y="259" width="42" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.090196078431372548" green="0.066666666666666666" blue="0.34509803921568627" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="vai-6P-V1v">
+                                <rect key="frame" x="275.5" y="375" width="51" height="31"/>
+                                <color key="onTintColor" red="0.37254901959999998" green="0.88235294119999996" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="switchValueChanged:" destination="Tbu-uo-Dzy" eventType="valueChanged" id="aQP-1A-h0A"/>
+                                </connections>
+                            </switch>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="2" translatesAutoresizingMaskIntoConstraints="NO" id="8fV-7K-pjU">
-                                <rect key="frame" x="198" y="285" width="204" height="31"/>
+                                <rect key="frame" x="198" y="214" width="204" height="31"/>
                                 <color key="tintColor" red="0.37254901960784315" green="0.88235294117647056" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
                                 <rect key="contentStretch" x="0.0" y="0.0" width="1" height="0.90000000000000002"/>
                                 <constraints>
@@ -182,13 +203,18 @@
                             <constraint firstItem="8fV-7K-pjU" firstAttribute="leading" secondItem="b0V-Xn-BjP" secondAttribute="leadingMargin" constant="82" id="TWl-Mu-uvt"/>
                             <constraint firstItem="8fV-7K-pjU" firstAttribute="centerY" secondItem="b0V-Xn-BjP" secondAttribute="centerY" id="UWr-Fa-4yV"/>
                             <constraint firstItem="zb8-qW-N3v" firstAttribute="top" secondItem="8fV-7K-pjU" secondAttribute="bottom" constant="100" id="VFp-qw-2sI"/>
-                            <constraint firstItem="NYS-EP-7I9" firstAttribute="top" secondItem="8fV-7K-pjU" secondAttribute="bottom" constant="30" id="Wz1-jD-QCe"/>
+                            <constraint firstItem="NYS-EP-7I9" firstAttribute="top" secondItem="8fV-7K-pjU" secondAttribute="bottom" constant="15" id="Wz1-jD-QCe"/>
+                            <constraint firstItem="vai-6P-V1v" firstAttribute="top" secondItem="kJI-J4-f2X" secondAttribute="bottom" constant="15" id="X88-Y1-xAE"/>
                             <constraint firstItem="8fV-7K-pjU" firstAttribute="centerY" secondItem="b0V-Xn-BjP" secondAttribute="centerY" id="ZMO-zK-mCy"/>
-                            <constraint firstItem="8fV-7K-pjU" firstAttribute="top" secondItem="U4g-un-q2m" secondAttribute="bottom" constant="30" id="i3J-hv-xsG"/>
+                            <constraint firstItem="zb8-qW-N3v" firstAttribute="top" secondItem="vai-6P-V1v" secondAttribute="bottom" constant="150" id="ds2-kf-Q71"/>
+                            <constraint firstItem="8fV-7K-pjU" firstAttribute="top" secondItem="U4g-un-q2m" secondAttribute="bottom" constant="15" id="i3J-hv-xsG"/>
                             <constraint firstAttribute="trailing" secondItem="8fV-7K-pjU" secondAttribute="trailing" constant="100" id="nFv-Qs-QXP"/>
+                            <constraint firstItem="vai-6P-V1v" firstAttribute="centerX" secondItem="b0V-Xn-BjP" secondAttribute="centerX" id="nfk-au-2Hv"/>
                             <constraint firstItem="U4g-un-q2m" firstAttribute="centerX" secondItem="b0V-Xn-BjP" secondAttribute="centerX" id="ooH-ps-l4M"/>
+                            <constraint firstItem="kJI-J4-f2X" firstAttribute="centerX" secondItem="b0V-Xn-BjP" secondAttribute="centerX" id="rd6-sF-mDr"/>
                             <constraint firstItem="8fV-7K-pjU" firstAttribute="leading" secondItem="b0V-Xn-BjP" secondAttribute="leading" constant="100" id="smd-r7-rhr"/>
                             <constraint firstItem="8fV-7K-pjU" firstAttribute="centerY" secondItem="b0V-Xn-BjP" secondAttribute="centerY" id="xhW-Ng-I7Z"/>
+                            <constraint firstItem="8fV-7K-pjU" firstAttribute="top" secondItem="JmB-XV-W3y" secondAttribute="bottom" constant="150" id="y1B-Px-odb"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -198,6 +224,7 @@
                                 <exclude reference="ZMO-zK-mCy"/>
                                 <exclude reference="nFv-Qs-QXP"/>
                                 <exclude reference="smd-r7-rhr"/>
+                                <exclude reference="xhW-Ng-I7Z"/>
                                 <exclude reference="OqS-72-LiP"/>
                                 <exclude reference="VFp-qw-2sI"/>
                             </mask>
@@ -214,6 +241,7 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="label" destination="NYS-EP-7I9" id="Udh-Nh-diK"/>
+                        <outlet property="modeSwitch" destination="vai-6P-V1v" id="eZR-EB-W3p"/>
                         <outlet property="slider" destination="8fV-7K-pjU" id="9vT-gm-0Kq"/>
                     </connections>
                 </viewController>

@@ -23,6 +23,8 @@ class DetectionViewController: UIViewController, AVCaptureVideoDataOutputSampleB
     
     var previewLayer : AVCaptureVideoPreviewLayer!
     
+    var active = true
+    
     // Object for face detection
     let detector = Detector()
     // Object for alert
@@ -56,6 +58,7 @@ class DetectionViewController: UIViewController, AVCaptureVideoDataOutputSampleB
         
         // define resolution
 //         mySession.sessionPreset = AVCaptureSessionPresetMedium
+//        mySession.sessionPreset = AVCaptureSessionPreset640x480
         mySession.sessionPreset = AVCaptureSessionPreset352x288
         
         // get whole devices
@@ -135,24 +138,39 @@ class DetectionViewController: UIViewController, AVCaptureVideoDataOutputSampleB
     // Process which is executed in every frames
     func captureOutput(captureOutput: AVCaptureOutput!, didOutputSampleBuffer sampleBuffer: CMSampleBuffer!, fromConnection connection: AVCaptureConnection!)
     {
-        dispatch_sync(dispatch_get_main_queue(), {
-            // Transfer to UIImage
-            let image = CameraUtil.imageFromSampleBuffer(sampleBuffer)
+        if (active) {
+        
+            dispatch_sync(dispatch_get_main_queue(), {
+                // Transfer to UIImage
+                let image = CameraUtil.imageFromSampleBuffer(sampleBuffer)
 
-            // Face recognition
-            let facialFeatures = self.detector.recognizeFace(image)
-//            let faceImage = self.detector.recognizeFace(image) // For debugging
-            
-//            // Wakeup alert
-            self.wakeupAlert.checkAlert(facialFeatures.face.isDetected, isEye1Detected:facialFeatures.eye1.isDetected, isEye2Detected:facialFeatures.eye2.isDetected)
+                // Face recognition
+                let facialFeatures = self.detector.recognizeFace(image)
+    //            let faceImage = self.detector.recognizeFace(image) // For debugging
+                
+    //            // Wakeup alert
+                self.wakeupAlert.checkAlert(facialFeatures.face.isDetected, isEye1Detected:facialFeatures.eye1.isDetected, isEye2Detected:facialFeatures.eye2.isDetected)
 
-            // Display
-//            self.imageView.image = faceImage // For debugging
-            // FIXME need to change to show directly from camera
-            self.imageView.image = image
+                // Display
+    //            self.imageView.image = faceImage // For debugging
+                // FIXME need to change to show directly from camera
+                self.imageView.image = image
+                
+                self.draw2D.drawFaceRectangle(facialFeatures)
+                self.draw2D.setNeedsDisplay()
+            })
             
-            self.draw2D.drawFaceRectangle(facialFeatures)
-            self.draw2D.setNeedsDisplay()
-        })
+        }
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        super.prepareForSegue(segue, sender: sender)
+        print("prepare for segue")
+        active = false
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        active = true
     }
 }
