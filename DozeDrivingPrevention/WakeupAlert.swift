@@ -9,6 +9,12 @@
 import UIKit
 import AudioToolbox
 
+let timeCountCloseBothEyes:Float = 0.13 // ２秒両目を閉じると警報を鳴らすようにしようとすると、２秒÷15フレーム＝1フレーム0.13を加算するようにする。
+//let timeCountCloseSingleEye:Float = 0.06 // 両目を閉じているときの半分のスピードでカウントする
+let timeCountCloseSingleEye:Float = 0.0 // 片目だけでのノイズが多い＆アラート状態から回復しにくいため、カウントゼロに変更
+let timeCountOpenEyes:Float = 0.26 // 目を開けている間は両目を閉じている時の倍早くカウントが回復するように設定（ノイズ防止のためにカウント自体は実行）
+
+
 class WakeupAlert {
     
     func checkAlert (isFaceDetected: Bool, isEye1Detected: Bool, isEye2Detected: Bool) {
@@ -17,26 +23,25 @@ class WakeupAlert {
             if (isEye1Detected == false && isEye2Detected == false) {
                 // Both eyes are closed
                 // FIXME ここのreactionTimeがしきい値となる。
-                // ２秒両目を閉じると警報を鳴らすようにしようとすると、２秒÷15フレーム＝1フレーム0.13を加算するようにする。片目の場合はその半分の0.06を加算するようにする
                 if (UserDefaultSingleton.sharedUserDefault.counter < UserDefaultSingleton.sharedUserDefault.reactionTime) {
-                    UserDefaultSingleton.sharedUserDefault.counter += 0.13
+                    UserDefaultSingleton.sharedUserDefault.counter += timeCountCloseBothEyes
                 }
                 
             } else if (isEye1Detected == false || isEye2Detected == false) {
                 if (UserDefaultSingleton.sharedUserDefault.counter < UserDefaultSingleton.sharedUserDefault.reactionTime) {
-                    UserDefaultSingleton.sharedUserDefault.counter += 0.06
+                    UserDefaultSingleton.sharedUserDefault.counter += timeCountCloseSingleEye
                 }
             } else {
-                if (UserDefaultSingleton.sharedUserDefault.counter >= 0.26) {
-                    UserDefaultSingleton.sharedUserDefault.counter -= 0.26
-                } else if (UserDefaultSingleton.sharedUserDefault.counter < 0.26) {
+                if (UserDefaultSingleton.sharedUserDefault.counter >= timeCountOpenEyes) {
+                    UserDefaultSingleton.sharedUserDefault.counter -= timeCountOpenEyes
+                } else if (UserDefaultSingleton.sharedUserDefault.counter < timeCountOpenEyes) {
                 UserDefaultSingleton.sharedUserDefault.counter = 0
                 }
             }
         } else {
-            if (UserDefaultSingleton.sharedUserDefault.counter >= 0.26) {
-                UserDefaultSingleton.sharedUserDefault.counter -= 0.26
-            } else if (UserDefaultSingleton.sharedUserDefault.counter < 0.26) {
+            if (UserDefaultSingleton.sharedUserDefault.counter >= timeCountOpenEyes) {
+                UserDefaultSingleton.sharedUserDefault.counter -= timeCountOpenEyes
+            } else if (UserDefaultSingleton.sharedUserDefault.counter < timeCountOpenEyes) {
                 UserDefaultSingleton.sharedUserDefault.counter = 0
             }
         }

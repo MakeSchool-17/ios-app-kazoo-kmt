@@ -13,6 +13,8 @@ class DetectionViewController: UIViewController, AVCaptureVideoDataOutputSampleB
 
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var draw2D: Draw2D!
+    @IBOutlet var viewConstraintFromTop: NSLayoutConstraint!
+    @IBOutlet var viewConstraintHeight: NSLayoutConstraint!
     
     // Session
     var mySession : AVCaptureSession!
@@ -23,7 +25,28 @@ class DetectionViewController: UIViewController, AVCaptureVideoDataOutputSampleB
     
     var previewLayer : AVCaptureVideoPreviewLayer!
     
+    // check now in main view or not
     var active = true
+    
+    // check item is tapped or untapped (tapped again)
+    var tapped = false
+    @IBAction func itemTapped(sender: AnyObject) {
+        if (tapped == false) {
+            tapped = true
+            self.viewConstraintHeight.active = false
+            self.viewConstraintFromTop.active = true
+            UIView.animateWithDuration(0.5) {
+                self.view.layoutIfNeeded()
+            }
+        } else {
+            tapped = false
+            self.viewConstraintFromTop.active = false
+            self.viewConstraintHeight.active = true
+            UIView.animateWithDuration(0.5) {
+                self.view.layoutIfNeeded()
+            }
+        }
+    }
     
     // Object for face detection
     let detector = Detector()

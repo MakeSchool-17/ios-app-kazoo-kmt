@@ -47,7 +47,7 @@
             </objects>
             <point key="canvasLocation" x="-549" y="331"/>
         </scene>
-        <!--Detection-->
+        <!--Drowsy Alarm-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="DetectionViewController" customModule="DozeDrivingPrevention" customModuleProvider="target" sceneMemberID="viewController">
@@ -65,11 +65,14 @@
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Oj-OE-ewP">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                             </navigationBar>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ruP-8d-1CE">
-                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ruP-8d-1CE">
+                                <rect key="frame" x="0.0" y="556" width="600" height="536"/>
                                 <items>
                                     <barButtonItem title="Hide face" id="JIf-e1-D39">
                                         <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="itemTapped:" destination="BYZ-38-t0r" id="Uky-g6-7gt"/>
+                                        </connections>
                                     </barButtonItem>
                                 </items>
                                 <color key="tintColor" red="0.94901960784313721" green="0.95686274509803915" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
@@ -79,34 +82,44 @@
                                 <rect key="frame" x="10" y="566" width="46" height="30"/>
                                 <state key="normal" title="Button"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VN7-A8-HQa">
-                                <rect key="frame" x="20" y="576" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
-                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N1Q-hc-aaT" customClass="Draw2D" customModule="DozeDrivingPrevention" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="64" width="600" height="492"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yzl-p8-xoo">
+                                <rect key="frame" x="0.0" y="64" width="600" height="492"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" id="GxT-P8-PwR"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="igQ-Hx-gbj" secondAttribute="trailing" id="19d-7N-5bB"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="yzl-p8-xoo" secondAttribute="bottom" id="1eu-ok-sSh"/>
                             <constraint firstItem="1Oj-OE-ewP" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="2Oa-r3-8em"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="yzl-p8-xoo" secondAttribute="trailing" id="5ug-PA-08V"/>
                             <constraint firstItem="ruP-8d-1CE" firstAttribute="top" secondItem="igQ-Hx-gbj" secondAttribute="bottom" id="EYZ-af-qVh"/>
                             <constraint firstItem="ruP-8d-1CE" firstAttribute="top" secondItem="N1Q-hc-aaT" secondAttribute="bottom" id="Fkf-eK-rkh"/>
                             <constraint firstItem="ruP-8d-1CE" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Gwb-Ji-ie7"/>
                             <constraint firstAttribute="trailing" secondItem="ruP-8d-1CE" secondAttribute="trailing" id="Jgh-ft-ya0"/>
+                            <constraint firstItem="yzl-p8-xoo" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="QP5-fg-BoK"/>
                             <constraint firstAttribute="trailingMargin" secondItem="1Oj-OE-ewP" secondAttribute="trailing" constant="-20" id="Rh3-FZ-b2n"/>
                             <constraint firstItem="ruP-8d-1CE" firstAttribute="top" secondItem="N1Q-hc-aaT" secondAttribute="bottom" id="TH8-Vs-A6c"/>
                             <constraint firstAttribute="trailing" secondItem="N1Q-hc-aaT" secondAttribute="trailing" id="URT-YP-Mbg"/>
                             <constraint firstItem="igQ-Hx-gbj" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="UnU-VD-eGh"/>
+                            <constraint firstAttribute="trailing" secondItem="yzl-p8-xoo" secondAttribute="trailing" id="VSR-6s-Bzp"/>
                             <constraint firstItem="1Oj-OE-ewP" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="VkU-8O-XNy"/>
                             <constraint firstItem="igQ-Hx-gbj" firstAttribute="top" secondItem="1Oj-OE-ewP" secondAttribute="bottom" id="WU6-KW-jOC"/>
+                            <constraint firstItem="yzl-p8-xoo" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="X1h-Hx-Rmz"/>
                             <constraint firstItem="N1Q-hc-aaT" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="fuO-95-FXn"/>
                             <constraint firstItem="N1Q-hc-aaT" firstAttribute="top" secondItem="1Oj-OE-ewP" secondAttribute="bottom" id="lE9-BH-nSb"/>
                             <constraint firstItem="ruP-8d-1CE" firstAttribute="bottom" secondItem="8bC-Xf-vdC" secondAttribute="bottomMargin" id="m9E-xC-XxR"/>
                             <constraint firstItem="N1Q-hc-aaT" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="ocl-di-mZa"/>
                             <constraint firstItem="N1Q-hc-aaT" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="q7W-Mc-4lR"/>
+                            <constraint firstItem="yzl-p8-xoo" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="sdZ-JS-9xd"/>
+                            <constraint firstItem="ruP-8d-1CE" firstAttribute="top" secondItem="yzl-p8-xoo" secondAttribute="bottom" id="sq3-1m-SBz"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="igQ-Hx-gbj" secondAttribute="bottom" id="trZ-yd-V4J"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="N1Q-hc-aaT" secondAttribute="bottom" id="xKZ-Kg-8p0"/>
                             <constraint firstItem="igQ-Hx-gbj" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="zDx-gg-rYk"/>
@@ -116,13 +129,17 @@
                                 <exclude reference="lE9-BH-nSb"/>
                                 <exclude reference="ocl-di-mZa"/>
                                 <exclude reference="WU6-KW-jOC"/>
+                                <exclude reference="5ug-PA-08V"/>
+                                <exclude reference="QP5-fg-BoK"/>
+                                <exclude reference="X1h-Hx-Rmz"/>
+                                <exclude reference="1eu-ok-sSh"/>
                                 <exclude reference="trZ-yd-V4J"/>
                                 <exclude reference="xKZ-Kg-8p0"/>
                             </mask>
                         </variation>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Detection" id="NBY-Ec-ltn">
+                    <navigationItem key="navigationItem" title="Drowsy Alarm" id="NBY-Ec-ltn">
                         <barButtonItem key="leftBarButtonItem" title="Instruction" id="SKa-d2-l48">
                             <connections>
                                 <segue destination="ZkP-O9-TOd" kind="show" identifier="Instruction" id="1O0-n4-Axa"/>
@@ -138,6 +155,8 @@
                     <connections>
                         <outlet property="draw2D" destination="N1Q-hc-aaT" id="v7Q-lP-7BJ"/>
                         <outlet property="imageView" destination="igQ-Hx-gbj" id="7eB-3G-B6b"/>
+                        <outlet property="viewConstraintFromTop" destination="X1h-Hx-Rmz" id="H7w-kZ-C5K"/>
+                        <outlet property="viewConstraintHeight" destination="GxT-P8-PwR" id="yHP-f0-uCJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -181,7 +200,7 @@
                                     <action selector="switchValueChanged:" destination="Tbu-uo-Dzy" eventType="valueChanged" id="aQP-1A-h0A"/>
                                 </connections>
                             </switch>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="2" translatesAutoresizingMaskIntoConstraints="NO" id="8fV-7K-pjU">
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="3" translatesAutoresizingMaskIntoConstraints="NO" id="8fV-7K-pjU">
                                 <rect key="frame" x="198" y="214" width="204" height="31"/>
                                 <color key="tintColor" red="0.37254901960784315" green="0.88235294117647056" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
                                 <rect key="contentStretch" x="0.0" y="0.0" width="1" height="0.90000000000000002"/>

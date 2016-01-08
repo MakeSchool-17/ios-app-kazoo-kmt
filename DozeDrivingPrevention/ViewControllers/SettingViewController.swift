@@ -28,7 +28,7 @@ class SettingViewController: UIViewController {
         if sender.on {
             UIScreen.mainScreen().brightness = CGFloat(1.0)
         } else {
-            UIScreen.mainScreen().brightness = CGFloat(0.5)
+            UIScreen.mainScreen().brightness = CGFloat(0.5) //FIXME Should change to keep the value of brightness which was before night mode is set on
         }
         
     }
