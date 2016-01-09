@@ -24,7 +24,8 @@
     
     // read the classifier
     NSBundle *face_bundle = [NSBundle mainBundle];
-    NSString *face_path = [face_bundle pathForResource:@"haarcascade_frontalface_alt" ofType:@"xml"];
+//    NSString *face_path = [face_bundle pathForResource:@"haarcascade_frontalface_alt" ofType:@"xml"];
+    NSString *face_path = [face_bundle pathForResource:@"haarcascade_frontalface_alt2" ofType:@"xml"];
     std::string face_cascadeName = (char *)[face_path UTF8String];
     
     if(!face_cascade.load(face_cascadeName)) {
@@ -34,7 +35,9 @@
     // Add cascade for eyes
     NSBundle *eyes_bundle = [NSBundle mainBundle];
     NSString *eyes_path = [eyes_bundle pathForResource:@"haarcascade_eye" ofType:@"xml"];
-//    NSString *eyes_path = [eyes_bundle pathForResource:@"haarcascade_eye_tree_eyeglasses" ofType:@"xml"];
+//    NSString *eyes_path = [eyes_bundle pathForResource:@"M. Rezaei- Closed Eye Classifier" ofType:@"xml"];
+    //    NSString *eyes_path = [eyes_bundle pathForResource:@"haarcascade_eye_tree_eyeglasses" ofType:@"xml"];
+//        NSString *eyes_path = [eyes_bundle pathForResource:@"haarcascade_righteye_2splits" ofType:@"xml"];
     std::string eyes_cascadeName = (char *)[eyes_path UTF8String];
     
     if(!eyes_cascade.load(eyes_cascadeName)) {
@@ -116,7 +119,8 @@
         facialFeatures.face.isDetected = true;
         
         // Cut a lower half part in face
-        r->height = r->height * 0.5; // これでノイズが取れなければ、目の数でスクリーニングする予定.数値は別に宣言すべきか。
+        r->y = r->y + r->height * 0.2; // 上から20％のところには目は無いとしてカット
+        r->height = r->height * 0.3; // これでノイズが取れなければ、目の数でスクリーニングする予定.数値は別に宣言すべきか。
     // In each face, detect eyes
         cv::Mat faceROI = mat(*r);
         

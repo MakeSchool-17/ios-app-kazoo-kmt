@@ -65,10 +65,10 @@
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Oj-OE-ewP">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                             </navigationBar>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ruP-8d-1CE">
-                                <rect key="frame" x="0.0" y="556" width="600" height="536"/>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ruP-8d-1CE">
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
                                 <items>
-                                    <barButtonItem title="Hide face" id="JIf-e1-D39">
+                                    <barButtonItem title="Change face" id="JIf-e1-D39">
                                         <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <action selector="itemTapped:" destination="BYZ-38-t0r" id="Uky-g6-7gt"/>
@@ -78,20 +78,51 @@
                                 <color key="tintColor" red="0.94901960784313721" green="0.95686274509803915" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </toolbar>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m2P-5j-rrg">
-                                <rect key="frame" x="10" y="566" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
-                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N1Q-hc-aaT" customClass="Draw2D" customModule="DozeDrivingPrevention" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="64" width="600" height="492"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yzl-p8-xoo">
                                 <rect key="frame" x="0.0" y="64" width="600" height="492"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="eye_normal" translatesAutoresizingMaskIntoConstraints="NO" id="BtR-57-9h9">
+                                        <rect key="frame" x="190" y="113" width="220" height="220"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="220" id="GaY-OP-YkU"/>
+                                            <constraint firstAttribute="height" constant="220" id="Tqs-jR-EVP"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="eye_exclamation_red" translatesAutoresizingMaskIntoConstraints="NO" id="Em8-Ki-wY9">
+                                        <rect key="frame" x="317" y="272" width="240" height="158"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="220" id="4t1-Vy-GS0"/>
+                                            <constraint firstAttribute="width" constant="220" id="lGH-xR-SEy"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="eye_question" translatesAutoresizingMaskIntoConstraints="NO" id="IpH-mh-Mkd">
+                                        <rect key="frame" x="27" y="259" width="240" height="171"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="220" id="148-l4-vqw"/>
+                                            <constraint firstAttribute="width" constant="220" id="Mz7-hR-XM1"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstItem="BtR-57-9h9" firstAttribute="top" secondItem="yzl-p8-xoo" secondAttribute="top" constant="160" id="6Sk-r4-cEc"/>
+                                    <constraint firstItem="Em8-Ki-wY9" firstAttribute="top" secondItem="yzl-p8-xoo" secondAttribute="top" constant="160" id="9ma-xU-wEs"/>
+                                    <constraint firstItem="BtR-57-9h9" firstAttribute="centerY" secondItem="yzl-p8-xoo" secondAttribute="centerY" id="FJh-NB-o1S"/>
                                     <constraint firstAttribute="height" id="GxT-P8-PwR"/>
+                                    <constraint firstItem="IpH-mh-Mkd" firstAttribute="centerX" secondItem="yzl-p8-xoo" secondAttribute="centerX" id="IFy-dI-i8V"/>
+                                    <constraint firstItem="IpH-mh-Mkd" firstAttribute="top" secondItem="yzl-p8-xoo" secondAttribute="top" constant="160" id="Mww-1z-jcA"/>
+                                    <constraint firstItem="Em8-Ki-wY9" firstAttribute="centerX" secondItem="yzl-p8-xoo" secondAttribute="centerX" id="OeZ-K0-fua"/>
+                                    <constraint firstItem="BtR-57-9h9" firstAttribute="centerX" secondItem="yzl-p8-xoo" secondAttribute="centerX" id="eJm-he-buZ"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="FJh-NB-o1S"/>
+                                    </mask>
+                                </variation>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -154,6 +185,9 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="draw2D" destination="N1Q-hc-aaT" id="v7Q-lP-7BJ"/>
+                        <outlet property="eyeExclamationRed" destination="Em8-Ki-wY9" id="zYL-fe-eru"/>
+                        <outlet property="eyeNormal" destination="BtR-57-9h9" id="aYB-m1-lgE"/>
+                        <outlet property="eyeQuestion" destination="IpH-mh-Mkd" id="aD0-Jq-kS3"/>
                         <outlet property="imageView" destination="igQ-Hx-gbj" id="7eB-3G-B6b"/>
                         <outlet property="viewConstraintFromTop" destination="X1h-Hx-Rmz" id="H7w-kZ-C5K"/>
                         <outlet property="viewConstraintHeight" destination="GxT-P8-PwR" id="yHP-f0-uCJ"/>
@@ -200,7 +234,7 @@
                                     <action selector="switchValueChanged:" destination="Tbu-uo-Dzy" eventType="valueChanged" id="aQP-1A-h0A"/>
                                 </connections>
                             </switch>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="3" translatesAutoresizingMaskIntoConstraints="NO" id="8fV-7K-pjU">
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.10000000000000001" maxValue="3" translatesAutoresizingMaskIntoConstraints="NO" id="8fV-7K-pjU">
                                 <rect key="frame" x="198" y="214" width="204" height="31"/>
                                 <color key="tintColor" red="0.37254901960784315" green="0.88235294117647056" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
                                 <rect key="contentStretch" x="0.0" y="0.0" width="1" height="0.90000000000000002"/>
@@ -292,4 +326,9 @@
             <point key="canvasLocation" x="179" y="-369"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="eye_exclamation_red" width="220" height="220"/>
+        <image name="eye_normal" width="220" height="220"/>
+        <image name="eye_question" width="220" height="220"/>
+    </resources>
 </document>

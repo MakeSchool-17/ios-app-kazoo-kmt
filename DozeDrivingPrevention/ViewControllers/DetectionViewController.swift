@@ -16,6 +16,11 @@ class DetectionViewController: UIViewController, AVCaptureVideoDataOutputSampleB
     @IBOutlet var viewConstraintFromTop: NSLayoutConstraint!
     @IBOutlet var viewConstraintHeight: NSLayoutConstraint!
     
+    @IBOutlet weak var eyeNormal: UIImageView!
+    @IBOutlet weak var eyeQuestion: UIImageView!
+    @IBOutlet weak var eyeExclamationRed: UIImageView!
+    
+    
     // Session
     var mySession : AVCaptureSession!
     // Camera device
@@ -172,15 +177,37 @@ class DetectionViewController: UIViewController, AVCaptureVideoDataOutputSampleB
     //            let faceImage = self.detector.recognizeFace(image) // For debugging
                 
     //            // Wakeup alert
-                self.wakeupAlert.checkAlert(facialFeatures.face.isDetected, isEye1Detected:facialFeatures.eye1.isDetected, isEye2Detected:facialFeatures.eye2.isDetected)
+                let alertCalled = self.wakeupAlert.checkAlert(facialFeatures.face.isDetected, isEye1Detected:facialFeatures.eye1.isDetected, isEye2Detected:facialFeatures.eye2.isDetected)
 
-                // Display
-    //            self.imageView.image = faceImage // For debugging
-                // FIXME need to change to show directly from camera
-                self.imageView.image = image
+
+                // Display real if tapped is false, display animated eye if tapped is true
+                if (self.tapped == false) {
+                    self.imageView.image = image
+                    self.draw2D.drawFaceRectangle(facialFeatures)
+                    self.draw2D.setNeedsDisplay()
+                } else {
+                    // If face is not detected, show question eye
+                    if (facialFeatures.face.isDetected == false) {
+                        self.eyeNormal.hidden = true
+                        self.eyeQuestion.hidden = false
+                    } else {
+                        self.eyeNormal.hidden = false
+                        self.eyeQuestion.hidden = true
+                    }
+                    // If judgement is drowsy, show exclamation eye
+                    if (alertCalled) {
+                        self.eyeNormal.hidden = true
+                        self.eyeExclamationRed.hidden = false
+                    } else {
+                        self.eyeNormal.hidden = false
+                        self.eyeExclamationRed.hidden = true
+                    }
+                    
+                }
                 
-                self.draw2D.drawFaceRectangle(facialFeatures)
-                self.draw2D.setNeedsDisplay()
+                // Show animated eye based on the detection and the judgement
+                
+                
             })
             
         }
