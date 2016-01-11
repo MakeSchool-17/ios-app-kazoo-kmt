@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		159AE0455FD0A8E20FB9DAF1 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5056A74B6B4EB131EB3D7E03 /* libPods.a */; };
 		C9444A161C28C6FE008FE644 /* UserDefaultSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9444A151C28C6FE008FE644 /* UserDefaultSingleton.swift */; };
+		C9444A231C40D316008FE644 /* InstructionContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9444A221C40D316008FE644 /* InstructionContentViewController.swift */; };
 		C9D3204F1C0E1CDA00641F84 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D3204E1C0E1CDA00641F84 /* AppDelegate.swift */; };
 		C9D320541C0E1CDA00641F84 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9D320521C0E1CDA00641F84 /* Main.storyboard */; };
 		C9D320561C0E1CDA00641F84 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9D320551C0E1CDA00641F84 /* Assets.xcassets */; };
@@ -54,6 +55,7 @@
 		7F7B9C1775EE8CF4E707015A /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		ADF8751B9599F9F0277D36F5 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		C9444A151C28C6FE008FE644 /* UserDefaultSingleton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultSingleton.swift; sourceTree = "<group>"; };
+		C9444A221C40D316008FE644 /* InstructionContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstructionContentViewController.swift; sourceTree = "<group>"; };
 		C9D3204B1C0E1CDA00641F84 /* DozeDrivingPrevention.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DozeDrivingPrevention.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9D3204E1C0E1CDA00641F84 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C9D320531C0E1CDA00641F84 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -208,6 +210,7 @@
 				C9D320D61C0E531600641F84 /* DetectionViewController.swift */,
 				C9D320D71C0E531600641F84 /* InstructionViewController.swift */,
 				C9D320DA1C0E533200641F84 /* SettingViewController.swift */,
+				C9444A221C40D316008FE644 /* InstructionContentViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -414,6 +417,7 @@
 				C9444A161C28C6FE008FE644 /* UserDefaultSingleton.swift in Sources */,
 				C9D320841C0E215B00641F84 /* Detector.mm in Sources */,
 				C9D320DB1C0E533200641F84 /* SettingViewController.swift in Sources */,
+				C9444A231C40D316008FE644 /* InstructionContentViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
