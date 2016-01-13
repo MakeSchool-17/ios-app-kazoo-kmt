@@ -112,11 +112,12 @@ class SettingTableViewController: UITableViewController {
     
     // When cell is tapped
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath:NSIndexPath) {
-        let selectedAlarm = alarmIDForSetting[indexPath.row] as? Int
-        if selectedAlarm != nil {
-            UserDefaultSingleton.sharedUserDefault.currentAlarmID = selectedAlarm
+        if indexPath.section == 1 { //Alarm section is 2nd part (check storyboard)
+            let selectedAlarm = alarmIDForSetting[indexPath.row] as? Int
+            if selectedAlarm != nil {
+                UserDefaultSingleton.sharedUserDefault.currentAlarmID = selectedAlarm
+            }
         }
-        
     }
     
  

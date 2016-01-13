@@ -35,9 +35,14 @@ class DetectionViewController: UIViewController, AVCaptureVideoDataOutputSampleB
     
     // check item is tapped or untapped (tapped again)
     var tapped = false
-    @IBAction func itemTapped(sender: AnyObject) {
+    @IBOutlet weak var changeFace: UIButton!
+    
+    @IBAction func changeFaceTapped(sender: AnyObject) {
         if (tapped == false) {
             tapped = true
+            
+            self.changeFace.selected = true
+            
             self.viewConstraintHeight.active = false
             self.viewConstraintFromTop.active = true
             UIView.animateWithDuration(0.5) {
@@ -45,6 +50,9 @@ class DetectionViewController: UIViewController, AVCaptureVideoDataOutputSampleB
             }
         } else {
             tapped = false
+
+            self.changeFace.selected = false
+
             self.viewConstraintFromTop.active = false
             self.viewConstraintHeight.active = true
             UIView.animateWithDuration(0.5) {
@@ -180,7 +188,7 @@ class DetectionViewController: UIViewController, AVCaptureVideoDataOutputSampleB
                 let alertCalled = self.wakeupAlert.checkAlert(facialFeatures.face.isDetected, isEye1Detected:facialFeatures.eye1.isDetected, isEye2Detected:facialFeatures.eye2.isDetected)
 
 
-                // Display real if tapped is false, display animated eye if tapped is true
+                // Display real face if tapped is false, display animated eye if tapped is true
                 if (self.tapped == false) {
                     self.imageView.image = image
                     self.draw2D.drawFaceRectangle(facialFeatures)
