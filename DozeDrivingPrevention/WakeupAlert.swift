@@ -14,9 +14,12 @@ let timeCountCloseBothEyes:Float = 0.13 // ２秒両目を閉じると警報を�
 let timeCountCloseSingleEye:Float = 0.0 // 片目だけでのノイズが多い＆アラート状態から回復しにくいため、カウントゼロに変更
 let timeCountOpenEyes:Float = 0.39 // 目を開けている間は両目を閉じている時の3倍早くカウントが回復するように設定（ノイズ防止のためにカウント自体は実行）
 
+// Declare preset alarm's title and ID
+let alarmTitle: NSArray = ["Alarm 1", "Alarm 2", "Alarm 3"]
+let alarmID: NSArray = [1005, 1256, 1151]
+
 
 class WakeupAlert {
-    
     func checkAlert (isFaceDetected: Bool, isEye1Detected: Bool, isEye2Detected: Bool) -> Bool {
         // 1. If closed both eyes, count twice. If closed one eye, count once. If opened eyes and count is not zero or negative, discount once. (need adjustment)
         if (isFaceDetected == true) {
@@ -54,7 +57,8 @@ class WakeupAlert {
         }
         */
         if (UserDefaultSingleton.sharedUserDefault.counter > UserDefaultSingleton.sharedUserDefault.reactionTime) {
-            let soundIdRing:SystemSoundID = 1005  // alarm.caf
+//            let soundIdRing:SystemSoundID = 1005  // alarm.caf
+            let soundIdRing:SystemSoundID = UInt32(UserDefaultSingleton.sharedUserDefault.currentAlarmID!) // alarm.caf
             AudioServicesPlaySystemSound(soundIdRing)
             return true
         }

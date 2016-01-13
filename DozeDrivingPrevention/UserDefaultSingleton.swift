@@ -21,6 +21,15 @@ class UserDefaultSingleton {
         }
     }
     
+    // Add alarm ID
+    let keyForAlarmID = "Alarm"
+    var currentAlarmID: Int? {
+        didSet {
+            NSUserDefaults.standardUserDefaults().setObject(currentAlarmID, forKey: keyForAlarmID)
+        }
+    }
+    
+    
     // Set counter how much time his/her eyes are closed
     var counter: Float
     
@@ -28,6 +37,9 @@ class UserDefaultSingleton {
         //read reactionTime from NSUserDefault
         reactionTime = NSUserDefaults.standardUserDefaults().objectForKey(keyForReactionTime) as! Float?
         counter = 0
+        
+        // Add alarm ID
+        currentAlarmID = NSUserDefaults.standardUserDefaults().objectForKey(keyForAlarmID) as! Int?
         
     }
 

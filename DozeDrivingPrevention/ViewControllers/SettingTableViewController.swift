@@ -10,19 +10,28 @@ import UIKit
 
 class SettingTableViewController: UITableViewController {
     
+    // Get title and ID of alarm from WakeupAlert.swift
+    @IBOutlet weak var alarmCell1: UILabel!
+    @IBOutlet weak var alarmCell2: UILabel!
+    @IBOutlet weak var alarmCell3: UILabel!
+    let alarmTitleForSetting = alarmTitle
+    let alarmIDForSetting = alarmID
+    
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var slider: UISlider!
     @IBOutlet weak var modeSwitch: UISwitch!
     
+    // Reaction time
     @IBAction func sliderValueChanged(sender: UISlider) {
-        
-        label.text = "\(sender.value)"
+        // Round the value
+//        label.text = "\(sender.value)"
+        label.text = String(format: "%.1f", sender.value)
         
         // Change responseTime by calling Singleton
         UserDefaultSingleton.sharedUserDefault.reactionTime = sender.value
     }
     
-    
+    // Night mode
     @IBAction func switchValueChanged(sender: UISwitch) {
         //        var temp_brightness = UIScreen.mainScreen().brightness
         if sender.on {
@@ -30,14 +39,19 @@ class SettingTableViewController: UITableViewController {
         } else {
             UIScreen.mainScreen().brightness = CGFloat(0.5) //FIXME Should change to keep the value of brightness which was before night mode is set on
         }
-        
     }
+    
+    // FIXME
+    // Make connection between setting view controller
+//    @IBOutlet weak var settingTableView: UITableView!
     
     override func viewWillAppear(animated: Bool)
     {
         //Load the value from NSUserDefault
         let value = UserDefaultSingleton.sharedUserDefault.reactionTime ?? 1.0// FIXME Initial value
-        label.text =  "\(value)"
+        // Round the value
+//        label.text =  "\(value)"
+        label.text = String(format: "%.1f", value)
         slider.value = value
         
         // Check current brightness and reflect to switch
@@ -47,6 +61,11 @@ class SettingTableViewController: UITableViewController {
             modeSwitch.setOn(false, animated: false)
         }
         
+        // Display the alarm name
+        alarmCell1.text = "\(alarmTitle[0])"
+        alarmCell2.text = "\(alarmTitle[1])"
+        alarmCell3.text = "\(alarmTitle[2])"
+
     }
 
     override func viewDidLoad() {
@@ -76,16 +95,31 @@ class SettingTableViewController: UITableViewController {
         return 0
     }
 */
-    /*
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
 
-        // Configure the cell...
+    // FIXME
+/*
+//    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+//        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
+//        let cell = tableView.dequeueReusableCellWithIdentifier("alarmCell", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("alarmCell", forIndexPath: indexPath)
+        
+        cell.textLabel?.text = alarmTitleForSetting[indexPath.row] as? String
 
         return cell
     }
-    */
-
+*/
+    
+    // When cell is tapped
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath:NSIndexPath) {
+        let selectedAlarm = alarmIDForSetting[indexPath.row] as? Int
+        if selectedAlarm != nil {
+            UserDefaultSingleton.sharedUserDefault.currentAlarmID = selectedAlarm
+        }
+        
+    }
+    
+ 
     /*
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
