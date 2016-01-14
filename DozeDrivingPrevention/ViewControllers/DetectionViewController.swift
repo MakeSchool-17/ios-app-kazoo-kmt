@@ -9,6 +9,9 @@
 import UIKit
 import AVFoundation
 
+//let displayBoundSize: CGSize = UIScreen.mainScreen().bounds.size
+//let displayFrameSize: CGSize = UIScreen.mainScreen().applicationFrame.size
+
 class DetectionViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDelegate {
 
     @IBOutlet weak var imageView: UIImageView!
@@ -20,7 +23,8 @@ class DetectionViewController: UIViewController, AVCaptureVideoDataOutputSampleB
     @IBOutlet weak var eyeQuestion: UIImageView!
     @IBOutlet weak var eyeExclamationRed: UIImageView!
     
-    
+    @IBOutlet weak var navigationBar: UINavigationBar!
+
     // Session
     var mySession : AVCaptureSession!
     // Camera device
@@ -164,6 +168,9 @@ class DetectionViewController: UIViewController, AVCaptureVideoDataOutputSampleB
                 if conn.supportsVideoOrientation {
                     conn.videoOrientation = AVCaptureVideoOrientation.Portrait
                 }
+                if conn.supportsVideoMirroring {
+                    conn.videoMirrored = true
+                }
             }
         }
         
@@ -182,7 +189,6 @@ class DetectionViewController: UIViewController, AVCaptureVideoDataOutputSampleB
 
                 // Face recognition
                 let facialFeatures = self.detector.recognizeFace(image)
-    //            let faceImage = self.detector.recognizeFace(image) // For debugging
                 
     //            // Wakeup alert
                 let alertCalled = self.wakeupAlert.checkAlert(facialFeatures.face.isDetected, isEye1Detected:facialFeatures.eye1.isDetected, isEye2Detected:facialFeatures.eye2.isDetected)
@@ -191,6 +197,23 @@ class DetectionViewController: UIViewController, AVCaptureVideoDataOutputSampleB
                 // Display real face if tapped is false, display animated eye if tapped is true
                 if (self.tapped == false) {
                     self.imageView.image = image
+                    // Mirror (don't need because mirrored in AVCaptureConnection
+//                    self.imageView.image = CGAffineTransformScale(self.imageView.transform, -1.0, 1.0)
+/*
+                    // get the screen & bar data for image size adjustment
+                    let screenWidth = Int(UIScreen.mainScreen().bounds.size.width) // iphone5: 320 (640px)
+                    let screenHeight = Int(UIScreen.mainScreen().bounds.size.height) // iphone5: 568 (1136px)
+                    let statusHeight = Int(UIApplication.sharedApplication().statusBarFrame.height)
+                    let navigationHeight = Int(self.navigationBar.frame.height)
+                    let sessionImageHeight: Int = 352
+                    let sessionImageWidth: Int = 288
+//                    mySession.sessionPreset = AVCaptureSessionPreset352x288
+                    let scaleRatioHeight = CGFloat((screenHeight - statusHeight - navigationHeight) / sessionImageHeight)
+                    let scaleRatioWidth = CGFloat(screenWidth / sessionImageWidth)
+                    // Scale
+                    self.imageView.transform = CGAffineTransformMakeScale(scaleRatioWidth, scaleRatioHeight)
+*/
+                    
                     self.draw2D.drawFaceRectangle(facialFeatures)
                     self.draw2D.setNeedsDisplay()
                 } else {
@@ -231,4 +254,5 @@ class DetectionViewController: UIViewController, AVCaptureVideoDataOutputSampleB
         super.viewWillAppear(animated)
         active = true
     }
+    
 }
