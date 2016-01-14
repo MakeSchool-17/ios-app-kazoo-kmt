@@ -106,22 +106,22 @@
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="eye_normal" translatesAutoresizingMaskIntoConstraints="NO" id="BtR-57-9h9">
                                         <rect key="frame" x="190" y="113" width="220" height="220"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="220" id="GaY-OP-YkU"/>
-                                            <constraint firstAttribute="height" constant="220" id="Tqs-jR-EVP"/>
+                                            <constraint firstAttribute="width" constant="150" id="GaY-OP-YkU"/>
+                                            <constraint firstAttribute="height" constant="150" id="Tqs-jR-EVP"/>
                                         </constraints>
                                     </imageView>
                                     <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="eye_exclamation_red" translatesAutoresizingMaskIntoConstraints="NO" id="Em8-Ki-wY9">
                                         <rect key="frame" x="317" y="272" width="240" height="158"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="220" id="4t1-Vy-GS0"/>
-                                            <constraint firstAttribute="width" constant="220" id="lGH-xR-SEy"/>
+                                            <constraint firstAttribute="height" constant="150" id="4t1-Vy-GS0"/>
+                                            <constraint firstAttribute="width" constant="150" id="lGH-xR-SEy"/>
                                         </constraints>
                                     </imageView>
                                     <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="eye_question" translatesAutoresizingMaskIntoConstraints="NO" id="IpH-mh-Mkd">
                                         <rect key="frame" x="27" y="259" width="240" height="171"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="220" id="148-l4-vqw"/>
-                                            <constraint firstAttribute="width" constant="220" id="Mz7-hR-XM1"/>
+                                            <constraint firstAttribute="height" constant="150" id="148-l4-vqw"/>
+                                            <constraint firstAttribute="width" constant="150" id="Mz7-hR-XM1"/>
                                         </constraints>
                                     </imageView>
                                 </subviews>
