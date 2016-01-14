@@ -4,17 +4,6 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-//#import <opencv2/opencv.hpp>
-//#import <opencv2/highgui/ios.h>
-//#import <list>
-/*
-typedef struct {
-    std::vector<cv::Rect> faceLocation;
-    std::list<std::vector<cv::Rect>> listOfEyesLocation;
-}FaceLocationAndListOfEyesLocation;
-*/
-
-
 
 typedef struct {
     CGRect featureRect; // this includes x, y, width and height
@@ -29,6 +18,5 @@ typedef struct {
 
 @interface Detector: NSObject
 - (id)init;
-//- (UIImage *)recognizeFace:(UIImage *)image; // for debugging
 - (FacialFeatures)recognizeFace:(UIImage *)image;
 @end

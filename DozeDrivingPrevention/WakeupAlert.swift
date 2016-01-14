@@ -9,10 +9,9 @@
 import UIKit
 import AudioToolbox
 
-let timeCountCloseBothEyes:Float = 0.13 // ２秒両目を閉じると警報を鳴らすようにしようとすると、２秒÷15フレーム＝1フレーム0.13を加算するようにする。
-//let timeCountCloseSingleEye:Float = 0.06 // 両目を閉じているときの半分のスピードでカウントする
-let timeCountCloseSingleEye:Float = 0.0 // 片目だけでのノイズが多い＆アラート状態から回復しにくいため、カウントゼロに変更
-let timeCountOpenEyes:Float = 0.39 // 目を開けている間は両目を閉じている時の3倍早くカウントが回復するように設定（ノイズ防止のためにカウント自体は実行）
+let timeCountCloseBothEyes:Float = 0.13 // FIXME: counter per 1 frame (Assume to make alert when you close your eyes for 2 seconds, 2sec / 15 frames = 0.13
+let timeCountCloseSingleEye:Float = 0.0 // FIXME: Can be half count, if you close an eye. Currently, no count because of noise
+let timeCountOpenEyes:Float = 0.39 // FIXME: When you open both eyes, count back 3rd times as both eyes' closing count
 
 // Declare preset alarm's title and ID
 let alarmTitle: NSArray = ["Alarm 1", "Alarm 2", "Alarm 3"]
@@ -25,7 +24,6 @@ class WakeupAlert {
         if (isFaceDetected == true) {
             if (isEye1Detected == false && isEye2Detected == false) {
                 // Both eyes are closed
-                // FIXME ここのreactionTimeがしきい値となる。
                 if (UserDefaultSingleton.sharedUserDefault.counter < UserDefaultSingleton.sharedUserDefault.reactionTime) {
                     UserDefaultSingleton.sharedUserDefault.counter += timeCountCloseBothEyes
                 }

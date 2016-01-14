@@ -24,7 +24,6 @@ class SettingTableViewController: UITableViewController {
     // Reaction time
     @IBAction func sliderValueChanged(sender: UISlider) {
         // Round the value
-//        label.text = "\(sender.value)"
         label.text = String(format: "%.1f", sender.value)
         
         // Change responseTime by calling Singleton
@@ -33,17 +32,12 @@ class SettingTableViewController: UITableViewController {
     
     // Night mode
     @IBAction func switchValueChanged(sender: UISwitch) {
-        //        var temp_brightness = UIScreen.mainScreen().brightness
         if sender.on {
             UIScreen.mainScreen().brightness = CGFloat(1.0)
         } else {
             UIScreen.mainScreen().brightness = CGFloat(0.5) //FIXME Should change to keep the value of brightness which was before night mode is set on
         }
     }
-    
-    // FIXME
-    // Make connection between setting view controller
-//    @IBOutlet weak var settingTableView: UITableView!
     
     override func viewWillAppear(animated: Bool)
     {
@@ -70,33 +64,12 @@ class SettingTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
-    // MARK: - Table view data source
-/*
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
-    }
-*/
-
-    // FIXME
 /*
 //    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {

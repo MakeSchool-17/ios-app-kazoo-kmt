@@ -29,7 +29,6 @@ class InstructionViewController: UIViewController, UIPageViewControllerDataSourc
         var viewControllers = NSArray(object: initialContentViewController)
         
         self.pageViewController.setViewControllers(viewControllers as! [UIViewController], direction: UIPageViewControllerNavigationDirection.Forward, animated: true, completion: nil)
-//        self.pageViewController.setViewControllers(viewControllers as [AnyObject], direction: UIPageViewControllerNavigationDirection.Forward, animated: true, completion: nil) //AnyObjectの部分でエラー
         
         self.pageViewController.view.frame = CGRectMake(0, 100, self.view.frame.size.width , self.view.frame.size.height - 100)
         self.addChildViewController(self.pageViewController)
@@ -42,18 +41,7 @@ class InstructionViewController: UIViewController, UIPageViewControllerDataSourc
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-    
+        
     // add for page view controller
     func pageInstructionAtIndex(index: Int) -> InstructionContentViewController {
         var pageContentViewController = self.storyboard?.instantiateViewControllerWithIdentifier("InstructionContentViewController") as! InstructionContentViewController

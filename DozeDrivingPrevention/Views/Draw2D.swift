@@ -9,11 +9,6 @@
 import UIKit
 
 class Draw2D: UIView {
-
-    // Only override drawRect: if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-//    override func drawRect(rect: CGRect) {
-//    }
     
     func drawFaceRectangle(facialFeatures: FacialFeatures) {
         
@@ -47,28 +42,5 @@ class Draw2D: UIView {
         eye2shapeView.path = eye2RectPath.CGPath
         self.layer.addSublayer(eye2shapeView)
         
-        
-        
-//        let frame = self.frame
-//        
-//        // Drawing code
-//        let context = UIGraphicsGetCurrentContext()
-//        CGContextSetLineWidth(context, 2.0)
-//        
-//        CGContextClearRect(context, frame)
-//        
-//        let colorSpace = CGColorSpaceCreateDeviceRGB()
-//        let components: [CGFloat] = [0.0, 0.0, 1.0, 1.0]
-//        let color = CGColorCreate(colorSpace, components)
-//        CGContextSetStrokeColorWithColor(context, color)
-//        
-//        let rectangleForFace = CGRectMake(60,170,200,80)
-////        let rectangleForFace = CGRectMake(facialFeatures.face.featureRect.origin.x,
-////            facialFeatures.face.featureRect.origin.y,
-////            facialFeatures.face.featureRect.size.width,
-////            facialFeatures.face.featureRect.size.height)
-//        
-//        CGContextAddRect(context, rectangleForFace)
-//        CGContextStrokePath(context)
     }
 }

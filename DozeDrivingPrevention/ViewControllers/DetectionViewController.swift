@@ -9,9 +9,6 @@
 import UIKit
 import AVFoundation
 
-//let displayBoundSize: CGSize = UIScreen.mainScreen().bounds.size
-//let displayFrameSize: CGSize = UIScreen.mainScreen().applicationFrame.size
-
 class DetectionViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDelegate {
 
     @IBOutlet weak var imageView: UIImageView!
@@ -139,13 +136,11 @@ class DetectionViewController: UIViewController, AVCaptureVideoDataOutputSampleB
         myOutput = AVCaptureVideoDataOutput()
         myOutput.videoSettings = [ kCVPixelBufferPixelFormatTypeKey: Int(kCVPixelFormatType_32BGRA) ]
         
-        
-        
         // set FPS
         do {
             try myDevice.lockForConfiguration()
             
-            myDevice.activeVideoMinFrameDuration = CMTimeMake(1, 15) // FIXME 現在は１５分の１秒が１フレームと設定
+            myDevice.activeVideoMinFrameDuration = CMTimeMake(1, 15) // FIXME: You can choose frame ratio (Currently, 1/15 second = 1 frame)
             myDevice.unlockForConfiguration()
         } catch let error {
             print("lock error: \(error)")
@@ -155,7 +150,6 @@ class DetectionViewController: UIViewController, AVCaptureVideoDataOutputSampleB
         // set delegate
         let queue: dispatch_queue_t = dispatch_queue_create("myqueue",  nil)
         myOutput.setSampleBufferDelegate(self, queue: queue)
-        
         
         // ignore delayed frame
         myOutput.alwaysDiscardsLateVideoFrames = true
@@ -182,7 +176,6 @@ class DetectionViewController: UIViewController, AVCaptureVideoDataOutputSampleB
         return true
     }
     
-    
     // Process which is executed in every frames
     func captureOutput(captureOutput: AVCaptureOutput!, didOutputSampleBuffer sampleBuffer: CMSampleBuffer!, fromConnection connection: AVCaptureConnection!)
     {
@@ -202,38 +195,7 @@ class DetectionViewController: UIViewController, AVCaptureVideoDataOutputSampleB
                 // Display real face if tapped is false, display animated eye if tapped is true
                 if (self.tapped == false) {
                     self.imageView.image = image
-                    // Mirror (don't need because mirrored in AVCaptureConnection
-//                    self.imageView.image = CGAffineTransformScale(self.imageView.transform, -1.0, 1.0)
-/*
-                    // get the screen & bar data for image size adjustment
-                    let screenWidth = Int(UIScreen.mainScreen().bounds.size.width) // iphone5: 320 (640px)
-                    let screenHeight = Int(UIScreen.mainScreen().bounds.size.height) // iphone5: 568 (1136px)
-                    let statusHeight = Int(UIApplication.sharedApplication().statusBarFrame.height)
-                    let navigationHeight = Int(self.navigationBar.frame.height)
-                    let sessionImageHeight: Int = 352
-                    let sessionImageWidth: Int = 288
-//                    mySession.sessionPreset = AVCaptureSessionPreset352x288
-                    let scaleRatioHeight = CGFloat((screenHeight - statusHeight - navigationHeight) / sessionImageHeight)
-                    let scaleRatioWidth = CGFloat(screenWidth / sessionImageWidth)
-                    // Scale
-                    self.imageView.transform = CGAffineTransformMakeScale(scaleRatioWidth, scaleRatioHeight)
-*/
-                    /*
-                    if (facialFeatures.face.isDetected == false) {
-                        self.bottomAwake.hidden = true
-                        self.bottomNotWorking.hidden = false
-                    } else {
-                        self.bottomAwake.hidden = false
-                        self.bottomNotWorking.hidden = true
-                    }
-                    if (alertCalled) {
-                        self.bottomAwake.hidden = true
-                        self.bottomDrowsy.hidden = false
-                    } else {
-                        self.bottomAwake.hidden = false
-                        self.bottomDrowsy.hidden = true
-                    }
-                    */
+
                     if (alertCalled) {
                         self.bottomAwake.hidden = true
                         self.bottomDrowsy.hidden = false
@@ -269,31 +231,8 @@ class DetectionViewController: UIViewController, AVCaptureVideoDataOutputSampleB
                         self.eyeExclamationRed.hidden = true
                         self.eyeQuestion.hidden = true
                     }
-
-                /*
-                    if (facialFeatures.face.isDetected == false) {
-                        self.eyeNormal.hidden = true
-                        self.eyeQuestion.hidden = false
-                    } else {
-                        self.eyeNormal.hidden = false
-                        self.eyeQuestion.hidden = true
-                    }
-                    // If judgement is drowsy, show exclamation eye
-                    if (alertCalled) {
-                        self.eyeNormal.hidden = true
-                        self.eyeExclamationRed.hidden = false
-                    } else {
-                        self.eyeNormal.hidden = false
-                        self.eyeExclamationRed.hidden = true
-                    }
-                  */
                 }
-                
-                // Show animated eye based on the detection and the judgement
-                
-                
-            })
-            
+            })            
         }
     }
     
