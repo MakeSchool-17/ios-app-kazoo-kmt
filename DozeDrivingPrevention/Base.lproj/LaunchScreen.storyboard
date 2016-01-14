@@ -16,7 +16,28 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="eye_icon" translatesAutoresizingMaskIntoConstraints="NO" id="JzF-TB-H7B">
+                                <rect key="frame" x="225" y="205" width="150" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="Cf7-cW-OAc"/>
+                                    <constraint firstAttribute="height" constant="150" id="o3q-z4-nhc"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Drowsy Alarm" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q0R-mY-KNB">
+                                <rect key="frame" x="231.5" y="365" width="137" height="26"/>
+                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="22"/>
+                                <color key="textColor" red="0.070588235294117646" green="0.031372549019607843" blue="0.27058823529411763" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="q0R-mY-KNB" firstAttribute="top" secondItem="JzF-TB-H7B" secondAttribute="bottom" constant="10" id="VzE-3F-a7g"/>
+                            <constraint firstItem="JzF-TB-H7B" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Z3L-ln-P46"/>
+                            <constraint firstItem="q0R-mY-KNB" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="bDa-hu-olX"/>
+                            <constraint firstItem="JzF-TB-H7B" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="-20" id="tiI-j7-5DF"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -24,4 +45,7 @@
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="eye_icon" width="220" height="220"/>
+    </resources>
 </document>
