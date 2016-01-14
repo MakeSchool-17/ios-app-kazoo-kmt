@@ -24,6 +24,11 @@ class DetectionViewController: UIViewController, AVCaptureVideoDataOutputSampleB
     @IBOutlet weak var eyeExclamationRed: UIImageView!
     
     @IBOutlet weak var navigationBar: UINavigationBar!
+    
+    @IBOutlet weak var bottomNotWorking: UIImageView!
+    @IBOutlet weak var bottomAwake: UIImageView!
+    @IBOutlet weak var bottomDrowsy: UIImageView!
+    
 
     // Session
     var mySession : AVCaptureSession!
@@ -213,11 +218,59 @@ class DetectionViewController: UIViewController, AVCaptureVideoDataOutputSampleB
                     // Scale
                     self.imageView.transform = CGAffineTransformMakeScale(scaleRatioWidth, scaleRatioHeight)
 */
+                    /*
+                    if (facialFeatures.face.isDetected == false) {
+                        self.bottomAwake.hidden = true
+                        self.bottomNotWorking.hidden = false
+                    } else {
+                        self.bottomAwake.hidden = false
+                        self.bottomNotWorking.hidden = true
+                    }
+                    if (alertCalled) {
+                        self.bottomAwake.hidden = true
+                        self.bottomDrowsy.hidden = false
+                    } else {
+                        self.bottomAwake.hidden = false
+                        self.bottomDrowsy.hidden = true
+                    }
+                    */
+                    if (alertCalled) {
+                        self.bottomAwake.hidden = true
+                        self.bottomDrowsy.hidden = false
+                        self.bottomNotWorking.hidden = true
+                    } else if (facialFeatures.face.isDetected == false){
+                        self.bottomAwake.hidden = true
+                        self.bottomDrowsy.hidden = true
+                        self.bottomNotWorking.hidden = false
+                    } else {
+                        self.bottomAwake.hidden = false
+                        self.bottomDrowsy.hidden = true
+                        self.bottomNotWorking.hidden = true
+                    }
                     
                     self.draw2D.drawFaceRectangle(facialFeatures)
                     self.draw2D.setNeedsDisplay()
                 } else {
+                    self.bottomAwake.hidden = true
+                    self.bottomDrowsy.hidden = true
+                    self.bottomNotWorking.hidden = true
+                    
                     // If face is not detected, show question eye
+                    if (alertCalled) {
+                        self.eyeNormal.hidden = true
+                        self.eyeExclamationRed.hidden = false
+                        self.eyeQuestion.hidden = true
+                    } else if (facialFeatures.face.isDetected == false){
+                        self.eyeNormal.hidden = true
+                        self.eyeExclamationRed.hidden = true
+                        self.eyeQuestion.hidden = false
+                    } else {
+                        self.eyeNormal.hidden = false
+                        self.eyeExclamationRed.hidden = true
+                        self.eyeQuestion.hidden = true
+                    }
+
+                /*
                     if (facialFeatures.face.isDetected == false) {
                         self.eyeNormal.hidden = true
                         self.eyeQuestion.hidden = false
@@ -233,7 +286,7 @@ class DetectionViewController: UIViewController, AVCaptureVideoDataOutputSampleB
                         self.eyeNormal.hidden = false
                         self.eyeExclamationRed.hidden = true
                     }
-                    
+                  */
                 }
                 
                 // Show animated eye based on the detection and the judgement
