@@ -1,0 +1,683 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		159AE0455FD0A8E20FB9DAF1 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5056A74B6B4EB131EB3D7E03 /* libPods.a */; };
+		C9444A161C28C6FE008FE644 /* UserDefaultSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9444A151C28C6FE008FE644 /* UserDefaultSingleton.swift */; };
+		C9444A231C40D316008FE644 /* InstructionContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9444A221C40D316008FE644 /* InstructionContentViewController.swift */; };
+		C9444A251C448957008FE644 /* SettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9444A241C448957008FE644 /* SettingTableViewController.swift */; };
+		C94BB3F71C6D6099006215BF /* secrets.plist in Resources */ = {isa = PBXBuildFile; fileRef = C94BB3F61C6D6099006215BF /* secrets.plist */; };
+		C9D3204F1C0E1CDA00641F84 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D3204E1C0E1CDA00641F84 /* AppDelegate.swift */; };
+		C9D320541C0E1CDA00641F84 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9D320521C0E1CDA00641F84 /* Main.storyboard */; };
+		C9D320561C0E1CDA00641F84 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9D320551C0E1CDA00641F84 /* Assets.xcassets */; };
+		C9D320591C0E1CDA00641F84 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9D320571C0E1CDA00641F84 /* LaunchScreen.storyboard */; };
+		C9D320641C0E1CDA00641F84 /* DozeDrivingPreventionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D320631C0E1CDA00641F84 /* DozeDrivingPreventionTests.swift */; };
+		C9D3206F1C0E1CDA00641F84 /* DozeDrivingPreventionUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D3206E1C0E1CDA00641F84 /* DozeDrivingPreventionUITests.swift */; };
+		C9D3207D1C0E207900641F84 /* CameraUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D3207C1C0E207900641F84 /* CameraUtil.swift */; };
+		C9D3207F1C0E20F500641F84 /* haarcascade_frontalface_alt.xml in Resources */ = {isa = PBXBuildFile; fileRef = C9D3207E1C0E20F500641F84 /* haarcascade_frontalface_alt.xml */; };
+		C9D320811C0E210A00641F84 /* haarcascade_eye_tree_eyeglasses.xml in Resources */ = {isa = PBXBuildFile; fileRef = C9D320801C0E210A00641F84 /* haarcascade_eye_tree_eyeglasses.xml */; };
+		C9D320841C0E215B00641F84 /* Detector.mm in Sources */ = {isa = PBXBuildFile; fileRef = C9D320831C0E215B00641F84 /* Detector.mm */; };
+		C9D3208B1C0E23C000641F84 /* haarcascade_frontalface_alt2.xml in Resources */ = {isa = PBXBuildFile; fileRef = C9D320851C0E23C000641F84 /* haarcascade_frontalface_alt2.xml */; };
+		C9D3208C1C0E23C000641F84 /* haarcascade_eye.xml in Resources */ = {isa = PBXBuildFile; fileRef = C9D320861C0E23C000641F84 /* haarcascade_eye.xml */; };
+		C9D3208E1C0E23C000641F84 /* haarcascade_righteye_2splits.xml in Resources */ = {isa = PBXBuildFile; fileRef = C9D320881C0E23C000641F84 /* haarcascade_righteye_2splits.xml */; };
+		C9D3208F1C0E23C000641F84 /* haarcascade_lefteye_2splits.xml in Resources */ = {isa = PBXBuildFile; fileRef = C9D320891C0E23C000641F84 /* haarcascade_lefteye_2splits.xml */; };
+		C9D320901C0E23C000641F84 /* lbpcascade_frontalface.xml in Resources */ = {isa = PBXBuildFile; fileRef = C9D3208A1C0E23C000641F84 /* lbpcascade_frontalface.xml */; };
+		C9D320D81C0E531600641F84 /* DetectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D320D61C0E531600641F84 /* DetectionViewController.swift */; };
+		C9D320D91C0E531600641F84 /* InstructionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D320D71C0E531600641F84 /* InstructionViewController.swift */; };
+		C9D320EE1C128DB700641F84 /* Draw2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D320ED1C128DB700641F84 /* Draw2D.swift */; };
+		C9D320F61C17777400641F84 /* WakeupAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D320F51C17777400641F84 /* WakeupAlert.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C9D320601C0E1CDA00641F84 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C9D320431C0E1CDA00641F84 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C9D3204A1C0E1CDA00641F84;
+			remoteInfo = DozeDrivingPrevention;
+		};
+		C9D3206B1C0E1CDA00641F84 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C9D320431C0E1CDA00641F84 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C9D3204A1C0E1CDA00641F84;
+			remoteInfo = DozeDrivingPrevention;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		5056A74B6B4EB131EB3D7E03 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		7F7B9C1775EE8CF4E707015A /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		ADF8751B9599F9F0277D36F5 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		C9444A151C28C6FE008FE644 /* UserDefaultSingleton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultSingleton.swift; sourceTree = "<group>"; };
+		C9444A221C40D316008FE644 /* InstructionContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstructionContentViewController.swift; sourceTree = "<group>"; };
+		C9444A241C448957008FE644 /* SettingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingTableViewController.swift; sourceTree = "<group>"; };
+		C94BB3F61C6D6099006215BF /* secrets.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = secrets.plist; path = ../secrets.plist; sourceTree = "<group>"; };
+		C9D3204B1C0E1CDA00641F84 /* DozeDrivingPrevention.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DozeDrivingPrevention.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C9D3204E1C0E1CDA00641F84 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C9D320531C0E1CDA00641F84 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C9D320551C0E1CDA00641F84 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C9D320581C0E1CDA00641F84 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		C9D3205A1C0E1CDA00641F84 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C9D3205F1C0E1CDA00641F84 /* DozeDrivingPreventionTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DozeDrivingPreventionTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C9D320631C0E1CDA00641F84 /* DozeDrivingPreventionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DozeDrivingPreventionTests.swift; sourceTree = "<group>"; };
+		C9D320651C0E1CDA00641F84 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C9D3206A1C0E1CDA00641F84 /* DozeDrivingPreventionUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DozeDrivingPreventionUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C9D3206E1C0E1CDA00641F84 /* DozeDrivingPreventionUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DozeDrivingPreventionUITests.swift; sourceTree = "<group>"; };
+		C9D320701C0E1CDA00641F84 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C9D3207C1C0E207900641F84 /* CameraUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraUtil.swift; sourceTree = "<group>"; };
+		C9D3207E1C0E20F500641F84 /* haarcascade_frontalface_alt.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = haarcascade_frontalface_alt.xml; sourceTree = "<group>"; };
+		C9D320801C0E210A00641F84 /* haarcascade_eye_tree_eyeglasses.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = haarcascade_eye_tree_eyeglasses.xml; sourceTree = "<group>"; };
+		C9D320821C0E215B00641F84 /* DozeDrivingPrevention-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DozeDrivingPrevention-Bridging-Header.h"; sourceTree = "<group>"; };
+		C9D320831C0E215B00641F84 /* Detector.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Detector.mm; sourceTree = "<group>"; };
+		C9D320851C0E23C000641F84 /* haarcascade_frontalface_alt2.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = haarcascade_frontalface_alt2.xml; sourceTree = "<group>"; };
+		C9D320861C0E23C000641F84 /* haarcascade_eye.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = haarcascade_eye.xml; sourceTree = "<group>"; };
+		C9D320881C0E23C000641F84 /* haarcascade_righteye_2splits.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = haarcascade_righteye_2splits.xml; sourceTree = "<group>"; };
+		C9D320891C0E23C000641F84 /* haarcascade_lefteye_2splits.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = haarcascade_lefteye_2splits.xml; sourceTree = "<group>"; };
+		C9D3208A1C0E23C000641F84 /* lbpcascade_frontalface.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = lbpcascade_frontalface.xml; sourceTree = "<group>"; };
+		C9D320D61C0E531600641F84 /* DetectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetectionViewController.swift; sourceTree = "<group>"; };
+		C9D320D71C0E531600641F84 /* InstructionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstructionViewController.swift; sourceTree = "<group>"; };
+		C9D320ED1C128DB700641F84 /* Draw2D.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Draw2D.swift; sourceTree = "<group>"; };
+		C9D320F51C17777400641F84 /* WakeupAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WakeupAlert.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C9D320481C0E1CDA00641F84 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				159AE0455FD0A8E20FB9DAF1 /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C9D3205C1C0E1CDA00641F84 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C9D320671C0E1CDA00641F84 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		42CB251EBDE9B51880E93DF8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5056A74B6B4EB131EB3D7E03 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A347A2B91966E3A0D8EF1F05 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7F7B9C1775EE8CF4E707015A /* Pods.debug.xcconfig */,
+				ADF8751B9599F9F0277D36F5 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		C9D320421C0E1CDA00641F84 = {
+			isa = PBXGroup;
+			children = (
+				C9D3204D1C0E1CDA00641F84 /* DozeDrivingPrevention */,
+				C9D320621C0E1CDA00641F84 /* DozeDrivingPreventionTests */,
+				C9D3206D1C0E1CDA00641F84 /* DozeDrivingPreventionUITests */,
+				C9D3204C1C0E1CDA00641F84 /* Products */,
+				A347A2B91966E3A0D8EF1F05 /* Pods */,
+				42CB251EBDE9B51880E93DF8 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		C9D3204C1C0E1CDA00641F84 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C9D3204B1C0E1CDA00641F84 /* DozeDrivingPrevention.app */,
+				C9D3205F1C0E1CDA00641F84 /* DozeDrivingPreventionTests.xctest */,
+				C9D3206A1C0E1CDA00641F84 /* DozeDrivingPreventionUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C9D3204D1C0E1CDA00641F84 /* DozeDrivingPrevention */ = {
+			isa = PBXGroup;
+			children = (
+				C9D320D41C0E520900641F84 /* Views */,
+				C9D320D51C0E520900641F84 /* ViewControllers */,
+				C9D320851C0E23C000641F84 /* haarcascade_frontalface_alt2.xml */,
+				C9D320861C0E23C000641F84 /* haarcascade_eye.xml */,
+				C9D320881C0E23C000641F84 /* haarcascade_righteye_2splits.xml */,
+				C9D320891C0E23C000641F84 /* haarcascade_lefteye_2splits.xml */,
+				C9D3208A1C0E23C000641F84 /* lbpcascade_frontalface.xml */,
+				C9D320801C0E210A00641F84 /* haarcascade_eye_tree_eyeglasses.xml */,
+				C9D3207E1C0E20F500641F84 /* haarcascade_frontalface_alt.xml */,
+				C9D3204E1C0E1CDA00641F84 /* AppDelegate.swift */,
+				C9D320521C0E1CDA00641F84 /* Main.storyboard */,
+				C9D320551C0E1CDA00641F84 /* Assets.xcassets */,
+				C9D320571C0E1CDA00641F84 /* LaunchScreen.storyboard */,
+				C9D3205A1C0E1CDA00641F84 /* Info.plist */,
+				C94BB3F61C6D6099006215BF /* secrets.plist */,
+				C9D3207C1C0E207900641F84 /* CameraUtil.swift */,
+				C9D320831C0E215B00641F84 /* Detector.mm */,
+				C9D320821C0E215B00641F84 /* DozeDrivingPrevention-Bridging-Header.h */,
+				C9D320F51C17777400641F84 /* WakeupAlert.swift */,
+				C9444A151C28C6FE008FE644 /* UserDefaultSingleton.swift */,
+			);
+			path = DozeDrivingPrevention;
+			sourceTree = "<group>";
+		};
+		C9D320621C0E1CDA00641F84 /* DozeDrivingPreventionTests */ = {
+			isa = PBXGroup;
+			children = (
+				C9D320631C0E1CDA00641F84 /* DozeDrivingPreventionTests.swift */,
+				C9D320651C0E1CDA00641F84 /* Info.plist */,
+			);
+			path = DozeDrivingPreventionTests;
+			sourceTree = "<group>";
+		};
+		C9D3206D1C0E1CDA00641F84 /* DozeDrivingPreventionUITests */ = {
+			isa = PBXGroup;
+			children = (
+				C9D3206E1C0E1CDA00641F84 /* DozeDrivingPreventionUITests.swift */,
+				C9D320701C0E1CDA00641F84 /* Info.plist */,
+			);
+			path = DozeDrivingPreventionUITests;
+			sourceTree = "<group>";
+		};
+		C9D320D41C0E520900641F84 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C9D320ED1C128DB700641F84 /* Draw2D.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		C9D320D51C0E520900641F84 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				C9D320D61C0E531600641F84 /* DetectionViewController.swift */,
+				C9D320D71C0E531600641F84 /* InstructionViewController.swift */,
+				C9444A221C40D316008FE644 /* InstructionContentViewController.swift */,
+				C9444A241C448957008FE644 /* SettingTableViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C9D3204A1C0E1CDA00641F84 /* DozeDrivingPrevention */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C9D320731C0E1CDA00641F84 /* Build configuration list for PBXNativeTarget "DozeDrivingPrevention" */;
+			buildPhases = (
+				19034A4132D025EBDDBE6ED2 /* Check Pods Manifest.lock */,
+				C9D320471C0E1CDA00641F84 /* Sources */,
+				C9D320481C0E1CDA00641F84 /* Frameworks */,
+				C9D320491C0E1CDA00641F84 /* Resources */,
+				BB2CD5D72259C6F84009BDBA /* Embed Pods Frameworks */,
+				9A876281DF1956E22654438D /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DozeDrivingPrevention;
+			productName = DozeDrivingPrevention;
+			productReference = C9D3204B1C0E1CDA00641F84 /* DozeDrivingPrevention.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C9D3205E1C0E1CDA00641F84 /* DozeDrivingPreventionTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C9D320761C0E1CDA00641F84 /* Build configuration list for PBXNativeTarget "DozeDrivingPreventionTests" */;
+			buildPhases = (
+				C9D3205B1C0E1CDA00641F84 /* Sources */,
+				C9D3205C1C0E1CDA00641F84 /* Frameworks */,
+				C9D3205D1C0E1CDA00641F84 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C9D320611C0E1CDA00641F84 /* PBXTargetDependency */,
+			);
+			name = DozeDrivingPreventionTests;
+			productName = DozeDrivingPreventionTests;
+			productReference = C9D3205F1C0E1CDA00641F84 /* DozeDrivingPreventionTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		C9D320691C0E1CDA00641F84 /* DozeDrivingPreventionUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C9D320791C0E1CDA00641F84 /* Build configuration list for PBXNativeTarget "DozeDrivingPreventionUITests" */;
+			buildPhases = (
+				C9D320661C0E1CDA00641F84 /* Sources */,
+				C9D320671C0E1CDA00641F84 /* Frameworks */,
+				C9D320681C0E1CDA00641F84 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C9D3206C1C0E1CDA00641F84 /* PBXTargetDependency */,
+			);
+			name = DozeDrivingPreventionUITests;
+			productName = DozeDrivingPreventionUITests;
+			productReference = C9D3206A1C0E1CDA00641F84 /* DozeDrivingPreventionUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C9D320431C0E1CDA00641F84 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0710;
+				LastUpgradeCheck = 0710;
+				ORGANIZATIONNAME = mycompany;
+				TargetAttributes = {
+					C9D3204A1C0E1CDA00641F84 = {
+						CreatedOnToolsVersion = 7.1.1;
+						DevelopmentTeam = 865NZFXY4B;
+					};
+					C9D3205E1C0E1CDA00641F84 = {
+						CreatedOnToolsVersion = 7.1.1;
+						DevelopmentTeam = R5EMR2BEV3;
+						TestTargetID = C9D3204A1C0E1CDA00641F84;
+					};
+					C9D320691C0E1CDA00641F84 = {
+						CreatedOnToolsVersion = 7.1.1;
+						DevelopmentTeam = R5EMR2BEV3;
+						TestTargetID = C9D3204A1C0E1CDA00641F84;
+					};
+				};
+			};
+			buildConfigurationList = C9D320461C0E1CDA00641F84 /* Build configuration list for PBXProject "DozeDrivingPrevention" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C9D320421C0E1CDA00641F84;
+			productRefGroup = C9D3204C1C0E1CDA00641F84 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C9D3204A1C0E1CDA00641F84 /* DozeDrivingPrevention */,
+				C9D3205E1C0E1CDA00641F84 /* DozeDrivingPreventionTests */,
+				C9D320691C0E1CDA00641F84 /* DozeDrivingPreventionUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C9D320491C0E1CDA00641F84 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C9D3208B1C0E23C000641F84 /* haarcascade_frontalface_alt2.xml in Resources */,
+				C9D320811C0E210A00641F84 /* haarcascade_eye_tree_eyeglasses.xml in Resources */,
+				C9D320591C0E1CDA00641F84 /* LaunchScreen.storyboard in Resources */,
+				C9D320561C0E1CDA00641F84 /* Assets.xcassets in Resources */,
+				C9D3208C1C0E23C000641F84 /* haarcascade_eye.xml in Resources */,
+				C9D3207F1C0E20F500641F84 /* haarcascade_frontalface_alt.xml in Resources */,
+				C9D320541C0E1CDA00641F84 /* Main.storyboard in Resources */,
+				C9D3208E1C0E23C000641F84 /* haarcascade_righteye_2splits.xml in Resources */,
+				C9D3208F1C0E23C000641F84 /* haarcascade_lefteye_2splits.xml in Resources */,
+				C94BB3F71C6D6099006215BF /* secrets.plist in Resources */,
+				C9D320901C0E23C000641F84 /* lbpcascade_frontalface.xml in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C9D3205D1C0E1CDA00641F84 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C9D320681C0E1CDA00641F84 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		19034A4132D025EBDDBE6ED2 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		9A876281DF1956E22654438D /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BB2CD5D72259C6F84009BDBA /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C9D320471C0E1CDA00641F84 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C9D320D91C0E531600641F84 /* InstructionViewController.swift in Sources */,
+				C9D320F61C17777400641F84 /* WakeupAlert.swift in Sources */,
+				C9D320EE1C128DB700641F84 /* Draw2D.swift in Sources */,
+				C9D3207D1C0E207900641F84 /* CameraUtil.swift in Sources */,
+				C9D3204F1C0E1CDA00641F84 /* AppDelegate.swift in Sources */,
+				C9D320D81C0E531600641F84 /* DetectionViewController.swift in Sources */,
+				C9444A161C28C6FE008FE644 /* UserDefaultSingleton.swift in Sources */,
+				C9444A251C448957008FE644 /* SettingTableViewController.swift in Sources */,
+				C9D320841C0E215B00641F84 /* Detector.mm in Sources */,
+				C9444A231C40D316008FE644 /* InstructionContentViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C9D3205B1C0E1CDA00641F84 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C9D320641C0E1CDA00641F84 /* DozeDrivingPreventionTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C9D320661C0E1CDA00641F84 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C9D3206F1C0E1CDA00641F84 /* DozeDrivingPreventionUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C9D320611C0E1CDA00641F84 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C9D3204A1C0E1CDA00641F84 /* DozeDrivingPrevention */;
+			targetProxy = C9D320601C0E1CDA00641F84 /* PBXContainerItemProxy */;
+		};
+		C9D3206C1C0E1CDA00641F84 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C9D3204A1C0E1CDA00641F84 /* DozeDrivingPrevention */;
+			targetProxy = C9D3206B1C0E1CDA00641F84 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		C9D320521C0E1CDA00641F84 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C9D320531C0E1CDA00641F84 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		C9D320571C0E1CDA00641F84 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C9D320581C0E1CDA00641F84 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C9D320711C0E1CDA00641F84 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C9D320721C0E1CDA00641F84 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C9D320741C0E1CDA00641F84 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7F7B9C1775EE8CF4E707015A /* Pods.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ENABLE_BITCODE = NO;
+				INFOPLIST_FILE = DozeDrivingPrevention/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.kazookmt.drowsyalarm;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "DozeDrivingPrevention/DozeDrivingPrevention-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		C9D320751C0E1CDA00641F84 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = ADF8751B9599F9F0277D36F5 /* Pods.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ENABLE_BITCODE = NO;
+				INFOPLIST_FILE = DozeDrivingPrevention/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.kazookmt.drowsyalarm;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "DozeDrivingPrevention/DozeDrivingPrevention-Bridging-Header.h";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		C9D320771C0E1CDA00641F84 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = DozeDrivingPreventionTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mycompany.DozeDrivingPreventionTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DozeDrivingPrevention.app/DozeDrivingPrevention";
+			};
+			name = Debug;
+		};
+		C9D320781C0E1CDA00641F84 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = DozeDrivingPreventionTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mycompany.DozeDrivingPreventionTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DozeDrivingPrevention.app/DozeDrivingPrevention";
+			};
+			name = Release;
+		};
+		C9D3207A1C0E1CDA00641F84 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = DozeDrivingPreventionUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mycompany.DozeDrivingPreventionUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = DozeDrivingPrevention;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		C9D3207B1C0E1CDA00641F84 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = DozeDrivingPreventionUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mycompany.DozeDrivingPreventionUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = DozeDrivingPrevention;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C9D320461C0E1CDA00641F84 /* Build configuration list for PBXProject "DozeDrivingPrevention" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C9D320711C0E1CDA00641F84 /* Debug */,
+				C9D320721C0E1CDA00641F84 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C9D320731C0E1CDA00641F84 /* Build configuration list for PBXNativeTarget "DozeDrivingPrevention" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C9D320741C0E1CDA00641F84 /* Debug */,
+				C9D320751C0E1CDA00641F84 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C9D320761C0E1CDA00641F84 /* Build configuration list for PBXNativeTarget "DozeDrivingPreventionTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C9D320771C0E1CDA00641F84 /* Debug */,
+				C9D320781C0E1CDA00641F84 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C9D320791C0E1CDA00641F84 /* Build configuration list for PBXNativeTarget "DozeDrivingPreventionUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C9D3207A1C0E1CDA00641F84 /* Debug */,
+				C9D3207B1C0E1CDA00641F84 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C9D320431C0E1CDA00641F84 /* Project object */;
+}
