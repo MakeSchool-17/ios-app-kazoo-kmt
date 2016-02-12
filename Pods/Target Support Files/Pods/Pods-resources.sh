@@ -57,6 +57,32 @@ install_resource()
       ;;
   esac
 }
+if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_resource "Mixpanel/Mixpanel/MPArrowLeft.png"
+  install_resource "Mixpanel/Mixpanel/MPArrowLeft@2x.png"
+  install_resource "Mixpanel/Mixpanel/MPArrowRight.png"
+  install_resource "Mixpanel/Mixpanel/MPArrowRight@2x.png"
+  install_resource "Mixpanel/Mixpanel/MPCheckmark.png"
+  install_resource "Mixpanel/Mixpanel/MPCheckmark@2x.png"
+  install_resource "Mixpanel/Mixpanel/MPDismissKeyboard.png"
+  install_resource "Mixpanel/Mixpanel/MPDismissKeyboard@2x.png"
+  install_resource "Mixpanel/Mixpanel/MPLogo.png"
+  install_resource "Mixpanel/Mixpanel/MPLogo@2x.png"
+  install_resource "Mixpanel/Mixpanel/MPSurvey.storyboard"
+fi
+if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_resource "Mixpanel/Mixpanel/MPArrowLeft.png"
+  install_resource "Mixpanel/Mixpanel/MPArrowLeft@2x.png"
+  install_resource "Mixpanel/Mixpanel/MPArrowRight.png"
+  install_resource "Mixpanel/Mixpanel/MPArrowRight@2x.png"
+  install_resource "Mixpanel/Mixpanel/MPCheckmark.png"
+  install_resource "Mixpanel/Mixpanel/MPCheckmark@2x.png"
+  install_resource "Mixpanel/Mixpanel/MPDismissKeyboard.png"
+  install_resource "Mixpanel/Mixpanel/MPDismissKeyboard@2x.png"
+  install_resource "Mixpanel/Mixpanel/MPLogo.png"
+  install_resource "Mixpanel/Mixpanel/MPLogo@2x.png"
+  install_resource "Mixpanel/Mixpanel/MPSurvey.storyboard"
+fi
 
 mkdir -p "${CONFIGURATION_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}"
 rsync -avr --copy-links --no-relative --exclude '*/.svn/*' --files-from="$RESOURCES_TO_COPY" / "${CONFIGURATION_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}"

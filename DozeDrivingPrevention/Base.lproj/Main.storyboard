@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="8MA-k7-cYX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="8MA-k7-cYX">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Instruction-->
+        <!--Instructions-->
         <scene sceneID="kDd-oH-Oii">
             <objects>
-                <viewController id="ZkP-O9-TOd" customClass="InstructionViewController" customModule="DozeDrivingPrevention" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Instruction" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ZkP-O9-TOd" customClass="InstructionViewController" customModule="DozeDrivingPrevention" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="JUK-bI-DWi"/>
                         <viewControllerLayoutGuide type="bottom" id="Sq0-O9-HEm"/>
@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Instruction" id="gt0-DQ-ryu">
+                    <navigationItem key="navigationItem" title="Instructions" id="gt0-DQ-ryu">
                         <barButtonItem key="leftBarButtonItem" title="Back" style="done" id="6aB-Tf-YvD">
                             <connections>
                                 <segue destination="ZCX-yA-97r" kind="unwind" unwindAction="unwindToSegue:" id="suQ-LC-Yhr"/>
@@ -84,21 +84,31 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="igQ-Hx-gbj">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="igQ-Hx-gbj">
                                 <rect key="frame" x="0.0" y="64" width="600" height="352"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="352" id="vhH-d1-8dJ"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="vhH-d1-8dJ"/>
+                                    </mask>
+                                </variation>
                             </imageView>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Oj-OE-ewP">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                             </navigationBar>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N1Q-hc-aaT" customClass="Draw2D" customModule="DozeDrivingPrevention" customModuleProvider="target">
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="N1Q-hc-aaT" customClass="Draw2D" customModule="DozeDrivingPrevention" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="64" width="600" height="352"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="352" id="hcH-iV-Rwa"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="hcH-iV-Rwa"/>
+                                    </mask>
+                                </variation>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yzl-p8-xoo">
                                 <rect key="frame" x="0.0" y="556" width="600" height="0.0"/>
@@ -227,14 +237,14 @@
                                 <exclude reference="5ug-PA-08V"/>
                                 <exclude reference="QP5-fg-BoK"/>
                                 <exclude reference="X1h-Hx-Rmz"/>
-                                <exclude reference="Di7-Yw-R1f"/>
                                 <exclude reference="7FI-Cj-rtD"/>
+                                <exclude reference="Di7-Yw-R1f"/>
                             </mask>
                         </variation>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Drowsy Alarm" id="NBY-Ec-ltn">
-                        <barButtonItem key="leftBarButtonItem" title="Instruction" id="SKa-d2-l48">
+                        <barButtonItem key="leftBarButtonItem" title="Instructions" id="SKa-d2-l48">
                             <connections>
                                 <segue destination="ZkP-O9-TOd" kind="show" identifier="Instruction" id="1O0-n4-Axa"/>
                             </connections>

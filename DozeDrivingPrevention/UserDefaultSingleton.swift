@@ -29,18 +29,35 @@ class UserDefaultSingleton {
         }
     }
     
-    
     // Set counter how much time his/her eyes are closed
     var counter: Float
     
     private init() {
         //read reactionTime from NSUserDefault
-        reactionTime = NSUserDefaults.standardUserDefaults().objectForKey(keyForReactionTime) as! Float?
-        counter = 0
-        
-        // Add alarm ID
-        currentAlarmID = NSUserDefaults.standardUserDefaults().objectForKey(keyForAlarmID) as! Int?
-        
-    }
 
+        counter = 0
+
+        // TODO
+        // set initial alarm sound & add alarm ID
+        let defaults = NSUserDefaults.standardUserDefaults()
+        if defaults.boolForKey("firstLaunchForSetting") {
+            // Some Process will be here
+//            UserDefaultSingleton.sharedUserDefault.currentAlarmID = 1005
+            reactionTime = 1.0
+            currentAlarmID = 1005
+            NSUserDefaults.standardUserDefaults().setObject(reactionTime, forKey: keyForReactionTime)
+            NSUserDefaults.standardUserDefaults().setObject(currentAlarmID, forKey: keyForAlarmID)
+
+            print("pass 1.0 for reactionTime and 1005 for current AlarmID to default")
+
+            // off the flag to know if it is first time to launch
+            defaults.setBool(false, forKey: "firstLaunchForSetting")
+        } else {
+        
+            reactionTime = NSUserDefaults.standardUserDefaults().objectForKey(keyForReactionTime) as! Float?
+        
+            // Add alarm sound
+            currentAlarmID = NSUserDefaults.standardUserDefaults().objectForKey(keyForAlarmID) as! Int?
+        }
+    }
 }

@@ -11,6 +11,7 @@
 		C9444A161C28C6FE008FE644 /* UserDefaultSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9444A151C28C6FE008FE644 /* UserDefaultSingleton.swift */; };
 		C9444A231C40D316008FE644 /* InstructionContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9444A221C40D316008FE644 /* InstructionContentViewController.swift */; };
 		C9444A251C448957008FE644 /* SettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9444A241C448957008FE644 /* SettingTableViewController.swift */; };
+		C94BB3F71C6D6099006215BF /* secrets.plist in Resources */ = {isa = PBXBuildFile; fileRef = C94BB3F61C6D6099006215BF /* secrets.plist */; };
 		C9D3204F1C0E1CDA00641F84 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D3204E1C0E1CDA00641F84 /* AppDelegate.swift */; };
 		C9D320541C0E1CDA00641F84 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9D320521C0E1CDA00641F84 /* Main.storyboard */; };
 		C9D320561C0E1CDA00641F84 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9D320551C0E1CDA00641F84 /* Assets.xcassets */; };
@@ -56,6 +57,7 @@
 		C9444A151C28C6FE008FE644 /* UserDefaultSingleton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultSingleton.swift; sourceTree = "<group>"; };
 		C9444A221C40D316008FE644 /* InstructionContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstructionContentViewController.swift; sourceTree = "<group>"; };
 		C9444A241C448957008FE644 /* SettingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingTableViewController.swift; sourceTree = "<group>"; };
+		C94BB3F61C6D6099006215BF /* secrets.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = secrets.plist; path = ../secrets.plist; sourceTree = "<group>"; };
 		C9D3204B1C0E1CDA00641F84 /* DozeDrivingPrevention.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DozeDrivingPrevention.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9D3204E1C0E1CDA00641F84 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C9D320531C0E1CDA00641F84 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 				C9D320551C0E1CDA00641F84 /* Assets.xcassets */,
 				C9D320571C0E1CDA00641F84 /* LaunchScreen.storyboard */,
 				C9D3205A1C0E1CDA00641F84 /* Info.plist */,
+				C94BB3F61C6D6099006215BF /* secrets.plist */,
 				C9D3207C1C0E207900641F84 /* CameraUtil.swift */,
 				C9D320831C0E215B00641F84 /* Detector.mm */,
 				C9D320821C0E215B00641F84 /* DozeDrivingPrevention-Bridging-Header.h */,
@@ -283,7 +286,7 @@
 				TargetAttributes = {
 					C9D3204A1C0E1CDA00641F84 = {
 						CreatedOnToolsVersion = 7.1.1;
-						DevelopmentTeam = R5EMR2BEV3;
+						DevelopmentTeam = 865NZFXY4B;
 					};
 					C9D3205E1C0E1CDA00641F84 = {
 						CreatedOnToolsVersion = 7.1.1;
@@ -331,6 +334,7 @@
 				C9D320541C0E1CDA00641F84 /* Main.storyboard in Resources */,
 				C9D3208E1C0E23C000641F84 /* haarcascade_righteye_2splits.xml in Resources */,
 				C9D3208F1C0E23C000641F84 /* haarcascade_lefteye_2splits.xml in Resources */,
+				C94BB3F71C6D6099006215BF /* secrets.plist in Resources */,
 				C9D320901C0E23C000641F84 /* lbpcascade_frontalface.xml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -561,10 +565,11 @@
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = DozeDrivingPrevention/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.mycompany.DozeDrivingPrevention;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kazookmt.drowsyalarm;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "DozeDrivingPrevention/DozeDrivingPrevention-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -578,9 +583,10 @@
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = DozeDrivingPrevention/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.mycompany.DozeDrivingPrevention;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kazookmt.drowsyalarm;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "DozeDrivingPrevention/DozeDrivingPrevention-Bridging-Header.h";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

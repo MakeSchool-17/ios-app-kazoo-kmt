@@ -54,8 +54,10 @@ class WakeupAlert {
         if (UserDefaultSingleton.sharedUserDefault.arrayForCount > 10) {
         }
         */
+        
         if (UserDefaultSingleton.sharedUserDefault.counter > UserDefaultSingleton.sharedUserDefault.reactionTime) {
 //            let soundIdRing:SystemSoundID = 1005  // alarm.caf
+
             let soundIdRing:SystemSoundID = UInt32(UserDefaultSingleton.sharedUserDefault.currentAlarmID!) // alarm.caf
             AudioServicesPlaySystemSound(soundIdRing)
             return true

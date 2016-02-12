@@ -21,6 +21,44 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UIPageControl.appearance().pageIndicatorTintColor = UIColor.lightGrayColor()
         UIPageControl.appearance().currentPageIndicatorTintColor = UIColor.cyanColor()
         
+        // first time to launch app
+        let defaults = NSUserDefaults.standardUserDefaults()
+        let dicForSetting = ["firstLaunchForSetting": true]
+        defaults.registerDefaults(dicForSetting)
+       
+        
+        let dicForInstruction = ["firstLaunchForInstruction": true]
+        defaults.registerDefaults(dicForInstruction)
+/*
+        
+        if defaults.boolForKey("firstLaunchForInstruction") {
+            
+            defaults.setBool(false, forKey: "firstLaunch")
+//            syncronise
+            
+//            self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let navigationController = storyboard.instantiateInitialViewController() as! UINavigationController
+            let initialViewController = storyboard.instantiateViewControllerWithIdentifier("Instruction")
+            // put as rootViewController
+            navigationController.viewControllers = [initialViewController]
+            self.window?.rootViewController = navigationController
+            // Display
+            self.window?.makeKeyAndVisible()
+
+        }
+        
+*/
+        
+        if let path = NSBundle.mainBundle().pathForResource("secrets", ofType: "plist"), dict = NSDictionary(contentsOfFile: path) as? [String: AnyObject] {
+            let my_mixpanel_id = dict["mixpanel_id"] as! String
+            Mixpanel.sharedInstanceWithToken(my_mixpanel_id)
+            // Insert analytics tool
+            let mixpanel: Mixpanel = Mixpanel.sharedInstance()
+            mixpanel.track("App launched")
+        }
+        
         return true
     }
 
@@ -44,6 +82,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+
     }
 
 

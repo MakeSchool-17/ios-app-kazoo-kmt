@@ -56,7 +56,7 @@
 
 - (FacialFeatures)recognizeFace:(UIImage *)image {
      // get the screen & bar data for image size adjustment (this time, width gonna be the restriction, so rescale based on the width, not height)
-     CGRect screenSize = [[UIScreen mainScreen] bounds]; // for iphone 5, 320
+     CGRect screenSize = [[UIScreen mainScreen] bounds]; // if iphone 5, 320
     int sessionImageWidth = 288;
     float scaleRatioWidth = screenSize.size.width / sessionImageWidth;
 
@@ -101,7 +101,7 @@
     for(; r1 != face1.end(); ++r1) {
         // Insert value to structure
         facialFeatures.face.featureRect.origin.x = r1->x * scaleRatioWidth;
-        facialFeatures.face.featureRect.origin.y = r1->y;
+        facialFeatures.face.featureRect.origin.y = r1->y * scaleRatioWidth;
         facialFeatures.face.featureRect.size.width = r1->width * scaleRatioWidth;
         facialFeatures.face.featureRect.size.height = r1->height * scaleRatioWidth;
         facialFeatures.face.isDetected = true;
@@ -131,7 +131,7 @@
             
             // Insert value to structure
             facialFeatures.eye1.featureRect.origin.x = (r1->x + nr1->x) * scaleRatioWidth;
-            facialFeatures.eye1.featureRect.origin.y = r1->y + nr1->y;
+            facialFeatures.eye1.featureRect.origin.y = (r1->y + nr1->y) * scaleRatioWidth;
             facialFeatures.eye1.featureRect.size.width = nr1->width * scaleRatioWidth;
             facialFeatures.eye1.featureRect.size.height = nr1->height * scaleRatioWidth;
             facialFeatures.eye1.isDetected = true;
@@ -168,7 +168,7 @@
             
             // Insert value to structure
             facialFeatures.eye2.featureRect.origin.x = (r2->x + nr2->x) * scaleRatioWidth;
-            facialFeatures.eye2.featureRect.origin.y = r2->y + nr2->y;
+            facialFeatures.eye2.featureRect.origin.y = (r2->y + nr2->y) * scaleRatioWidth;
             facialFeatures.eye2.featureRect.size.width = nr2->width * scaleRatioWidth;
             facialFeatures.eye2.featureRect.size.height = nr2->height * scaleRatioWidth;
             facialFeatures.eye2.isDetected = true;

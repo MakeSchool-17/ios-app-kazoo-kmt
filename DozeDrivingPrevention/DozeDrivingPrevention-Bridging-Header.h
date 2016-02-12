@@ -4,6 +4,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import <Mixpanel.h>
 
 typedef struct {
     CGRect featureRect; // this includes x, y, width and height

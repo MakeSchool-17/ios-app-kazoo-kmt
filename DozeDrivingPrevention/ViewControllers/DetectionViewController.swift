@@ -44,7 +44,12 @@ class DetectionViewController: UIViewController, AVCaptureVideoDataOutputSampleB
     @IBOutlet weak var changeFace: UIButton!
     
     @IBAction func changeFaceTapped(sender: AnyObject) {
+        
+        let mixpanel: Mixpanel = Mixpanel.sharedInstance()
+        
         if (tapped == false) {
+            mixpanel.track("Face hided/showed", properties: ["Face":"Hided"])
+            
             tapped = true
             
             self.changeFace.selected = true
@@ -55,6 +60,8 @@ class DetectionViewController: UIViewController, AVCaptureVideoDataOutputSampleB
                 self.view.layoutIfNeeded()
             }
         } else {
+            mixpanel.track("Face hided/showed", properties: ["Face":"Shown"])
+
             tapped = false
 
             self.changeFace.selected = false
@@ -66,6 +73,7 @@ class DetectionViewController: UIViewController, AVCaptureVideoDataOutputSampleB
             }
         }
     }
+    
     
     // Object for face detection
     let detector = Detector()
@@ -191,12 +199,24 @@ class DetectionViewController: UIViewController, AVCaptureVideoDataOutputSampleB
     //            // Wakeup alert
                 let alertCalled = self.wakeupAlert.checkAlert(facialFeatures.face.isDetected, isEye1Detected:facialFeatures.eye1.isDetected, isEye2Detected:facialFeatures.eye2.isDetected)
 
-
+                let mixpanel: Mixpanel = Mixpanel.sharedInstance()
+                
                 // Display real face if tapped is false, display animated eye if tapped is true
                 if (self.tapped == false) {
                     self.imageView.image = image
+                    
+                    let screenSize = UIScreen.mainScreen().bounds // if iphone 5, 320
+                    let sessionImageWidth = 288;
+                    let sessionImageHeight = 352;
+                    let scaleRatioWidth = screenSize.size.width / CGFloat(sessionImageWidth);
+
+                    self.imageView.frame.size.height = CGFloat(sessionImageHeight) * scaleRatioWidth
+                    self.draw2D.frame.size.height = self.imageView.frame.size.height
 
                     if (alertCalled) {
+
+                        mixpanel.track("Alarm triggered")
+                        
                         self.bottomAwake.hidden = true
                         self.bottomDrowsy.hidden = false
                         self.bottomNotWorking.hidden = true
@@ -219,6 +239,9 @@ class DetectionViewController: UIViewController, AVCaptureVideoDataOutputSampleB
                     
                     // If face is not detected, show question eye
                     if (alertCalled) {
+                        
+                        mixpanel.track("Alarm triggered")
+                        
                         self.eyeNormal.hidden = true
                         self.eyeExclamationRed.hidden = false
                         self.eyeQuestion.hidden = true
@@ -240,11 +263,37 @@ class DetectionViewController: UIViewController, AVCaptureVideoDataOutputSampleB
         super.prepareForSegue(segue, sender: sender)
         print("prepare for segue")
         active = false
+        
+        let mixpanel: Mixpanel = Mixpanel.sharedInstance()
+        
+        if (segue.identifier == "Instruction") {
+            mixpanel.track("Main view segued", properties: ["Navigation":"Instruction"])
+        } else if (segue.identifier == "Setting") {
+            mixpanel.track("Main view segued", properties: ["Navigation":"Setting"])
+        }
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         active = true
+        
+        // Show instruction for first launch
+        let defaults = NSUserDefaults.standardUserDefaults()
+        if defaults.boolForKey("firstLaunchForInstruction") {
+            defaults.setBool(false, forKey: "firstLaunchForInstruction")
+//            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//            let navigationController = storyboard.instantiateInitialViewController() as! UINavigationController
+//            let initialViewController = storyboard.instantiateViewControllerWithIdentifier("Instruction")
+//            navigationController.viewControllers = [initialViewController]
+//            self.window?.rootViewController = navigationController
+//            self.window?.makeKeyAndVisible(
+
+//            let navigationController = self.storyboard!.instantiateInitialViewController() as! UINavigationController
+//            let targetViewController = self.storyboard!.instantiateViewControllerWithIdentifier("Instruction")
+//            navigationController.viewControllers = [targetViewController]
+//            self.presentViewController( navigationController, animated: true, completion: nil)
+            self.performSegueWithIdentifier("Instruction", sender:self)
+        
+        }
     }
-    
 }
