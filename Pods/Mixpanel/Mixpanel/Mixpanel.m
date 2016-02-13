@@ -22,7 +22,7 @@
 #include <sys/socket.h>
 #include <sys/sysctl.h>
 
-#import <AdSupport/ASIdentifierManager.h>
+//#import <AdSupport/ASIdentifierManager.h>
 #import <CommonCrypto/CommonDigest.h>
 #import <CoreTelephony/CTCarrier.h>
 #import <CoreTelephony/CTTelephonyNetworkInfo.h>
@@ -296,9 +296,9 @@ static Mixpanel *sharedInstance = nil;
     if (carrier.carrierName.length) {
         [p setValue:carrier.carrierName forKey:@"$carrier"];
     }
-    if (NSClassFromString(@"ASIdentifierManager")) {
-        [p setValue:[[ASIdentifierManager sharedManager].advertisingIdentifier UUIDString] forKey:@"$ios_ifa"];
-    }
+//    if (NSClassFromString(@"ASIdentifierManager")) {
+//        [p setValue:[[ASIdentifierManager sharedManager].advertisingIdentifier UUIDString] forKey:@"$ios_ifa"];
+//    }
     return p;
 }
 
@@ -408,9 +408,9 @@ static Mixpanel *sharedInstance = nil;
 - (NSString *)defaultDistinctId
 {
     NSString *distinctId = nil;
-    if (NSClassFromString(@"ASIdentifierManager")) {
-        distinctId = [[ASIdentifierManager sharedManager].advertisingIdentifier UUIDString];
-    }
+//    if (NSClassFromString(@"ASIdentifierManager")) {
+//        distinctId = [[ASIdentifierManager sharedManager].advertisingIdentifier UUIDString];
+//    }
     if (!distinctId) {
         NSLog(@"%@ error getting ifa: falling back to uuid", self);
         distinctId = [[NSUUID UUID] UUIDString];
@@ -1136,9 +1136,9 @@ static Mixpanel *sharedInstance = nil;
     [p setValue:[device systemVersion] forKey:@"$ios_version"];
     [p setValue:[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleVersion"] forKey:@"$ios_app_version"];
     [p setValue:[[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"] forKey:@"$ios_app_release"];
-    if (NSClassFromString(@"ASIdentifierManager")) {
-        [p setValue:[[ASIdentifierManager sharedManager].advertisingIdentifier UUIDString] forKey:@"$ios_ifa"];
-    }
+//    if (NSClassFromString(@"ASIdentifierManager")) {
+//        [p setValue:[[ASIdentifierManager sharedManager].advertisingIdentifier UUIDString] forKey:@"$ios_ifa"];
+//    }
     return [NSDictionary dictionaryWithDictionary:p];
 }
 
