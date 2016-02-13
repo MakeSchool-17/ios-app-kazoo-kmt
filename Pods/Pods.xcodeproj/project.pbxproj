@@ -10,7 +10,6 @@
 		100F9E135D44270FAC729B1F1D02CCDB /* MPSurveyQuestion.h in Headers */ = {isa = PBXBuildFile; fileRef = 8601B26FBF6C28A4207329C490F6D308 /* MPSurveyQuestion.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		122E9AF4E8C57AC0F1862045E3C3E94D /* MPSurveyNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = A0EE3D592B27D8E9496B7949A7DC3734 /* MPSurveyNavigationController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		1595B66075A1B5CF41D302796F9416C5 /* MPSurveyQuestionViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 062910E1A8BFB0C8F176D00BDF9205EC /* MPSurveyQuestionViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		193F49C0014EE758C1A012452875EAED /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 917670EBCC17C0775A521993AD99DB65 /* AdSupport.framework */; };
 		1E5BC5F8291E4DB63981405AAFB68167 /* MPSurveyQuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C4F6D39FD876585110FEE3FAE6C23A75 /* MPSurveyQuestionViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		2C225428670913D72193E53A7947C2D0 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C186ABD4F7EC9108C6E8DDE4919C667F /* Accelerate.framework */; };
 		2CD445FC14B8D9C0E5F54D485343A587 /* Mixpanel.h in Headers */ = {isa = PBXBuildFile; fileRef = 8EB4CFAE0372588442A63F67B2AC24CF /* Mixpanel.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -79,7 +78,6 @@
 		8601B26FBF6C28A4207329C490F6D308 /* MPSurveyQuestion.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MPSurveyQuestion.h; path = Mixpanel/MPSurveyQuestion.h; sourceTree = "<group>"; };
 		8EB4CFAE0372588442A63F67B2AC24CF /* Mixpanel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Mixpanel.h; path = Mixpanel/Mixpanel.h; sourceTree = "<group>"; };
 		8F239FD83CF5655695B9B41C69C21675 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		917670EBCC17C0775A521993AD99DB65 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/AdSupport.framework; sourceTree = DEVELOPER_DIR; };
 		96F0EEF5EDE17CA82F8DB93CB30A0F8E /* UIView+MPSnapshotImage.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIView+MPSnapshotImage.h"; path = "Mixpanel/UIView+MPSnapshotImage.h"; sourceTree = "<group>"; };
 		9764AEDD89B17A86205D4BD14A581D67 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
 		9871D49F90D8CF02AD17B82F1FC065FE /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
@@ -108,7 +106,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C225428670913D72193E53A7947C2D0 /* Accelerate.framework in Frameworks */,
-				193F49C0014EE758C1A012452875EAED /* AdSupport.framework in Frameworks */,
 				85FD6AD91E98B98355B8F2939CE082DA /* CoreGraphics.framework in Frameworks */,
 				755E4F0B1AD49E2064B76707FA8E4457 /* CoreTelephony.framework in Frameworks */,
 				EDC36370FB74460A67AFDF83D5961800 /* Foundation.framework in Frameworks */,
@@ -250,7 +247,6 @@
 			isa = PBXGroup;
 			children = (
 				C186ABD4F7EC9108C6E8DDE4919C667F /* Accelerate.framework */,
-				917670EBCC17C0775A521993AD99DB65 /* AdSupport.framework */,
 				5686F5D358364B7EAE56A81F2DEEE8F2 /* CoreGraphics.framework */,
 				4517B39EDC68EC6A4810330AEFFBC1E3 /* CoreTelephony.framework */,
 				8F239FD83CF5655695B9B41C69C21675 /* Foundation.framework */,
